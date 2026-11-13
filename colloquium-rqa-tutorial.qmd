@@ -1,0 +1,354 @@
+---
+title: "Categorical Recurrence Analysis:"
+subtitle: "a tutorial in R"
+author: David Heath
+date: 11.16.26
+format: 
+  revealjs:
+    theme: simple
+---
+
+## Recurrence: It's all coming back to me now
+
+To recur is to pass through a similar state at a later point in time. 
+Recurrence is a ubiquitous feature in natural systems.
+
+## Who cares?
+
+Ok, so what?
+
+Well, we all work with human data, and humans, being natural systems, also display recurrence at every level.
+We're all very grateful for recurrence in the states of the muscles in our hearts, for example. 
+
+Human behavior also tends to recur, and through the arcane rites of Recurrence Quantification, we can learn about how behavior is organized. 
+
+## What kind of behavior?
+
+Any kind, as long as it is temporally organized!
+
+t1, t2, t3, t4, etc... 
+
+Patterns of recurrence are patterns in time, so we need data that has temporal structure. 
+
+This could be...
+  SRL codes
+  Student generated texts
+  Flash card success/fails
+  
+## Big picture
+
+data -> RP -> metrics
+
+maybe look at wallot and leonardi flow chart
+
+## Setup
+
+```{r, warning=FALSE}
+#| echo: True
+#| warning: False
+
+library(tidyverse) 
+library(crqa)
+library(gt)
+
+```
+
+tidyverse is going to help us keep everything organized
+crqa is how we'll run the recurrence analysis
+
+## Data
+
+```{r}
+#| echo: True
+
+texts <- read.csv("texts.csv")
+```
+Again, in principle, this could be any kind of data, but these make for a convenient example
+
+## Parameters
+Parameters determine how the data is transformed into an RP and how the RP is quantified. 
+
+For categorical data, we can use standard values.
+
+Just show picture example here
+
+Embedding and delay are sort of like 3d glasses
+
+## Metrics
+
+## Example 1: Moby Dick
+
+Melville
+
+## RQA: Moby
+
+```{r}
+#| echo: TRUE
+
+moby_for_plot <- crqa(ts1 = texts$moby,
+                 ts2 = texts$moby,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 0,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+```
+
+## Recurrence Plot: Moby Dick
+
+```{r}
+#| echo: True
+
+moby_rp <- moby_for_plot$RP
+
+plot_rp(moby_rp,
+                  title = "Recurrence Plot of the first 100 words of Moby Dick",
+                  xlabel = "Call me Ishmael...",
+                  ylabel = "Call me Ishmael...",
+                  pcolour = "black",
+                  geom = c("void"),
+                  flip_y = FALSE) +
+                    geom_point(size = 1)
+
+```
+
+## Recurrence Metrics: Moby Dick
+First, we need to run our analysis again with one parameter changed:
+
+```{r}
+moby_for_metric <- crqa(ts1 = texts$moby,
+                 ts2 = texts$moby,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 1,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+```
+
+
+```{r}
+moby_output <- data.frame()
+
+moby_output <- rbind(moby_output,
+                       cbind("RR" = moby_for_metric$RR,
+                             "DET" = moby_for_metric$DET,
+                             "NRLINE" = moby_for_metric$NRLINE,
+                             "MaxL" = moby_for_metric$maxL,
+                             "L" = moby_for_metric$L,
+                             "ENTR" = moby_for_metric$ENTR,
+                             "LAM" = moby_for_metric$LAM,
+                             "TT" = moby_for_metric$TT))
+
+gt(moby_output)
+```
+
+## Let's try a couple more texts
+
+Dylan Thomas 
+
+Verna Hills
+
+## RQA: And death shall have no dominion
+
+```{r}
+#| echo: TRUE
+#| warnings: True 
+
+death_for_plot <- crqa(ts1 = texts$death,
+                 ts2 = texts$death,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 0,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+```
+
+## Recurrence Plot: And Death Shall Have No Dominion
+
+```{r}
+#| echo: True
+
+death_rp <- death_for_plot$RP
+
+plot_rp(death_rp,
+                  title = "Recurrence Plot of And Death Shall Have No Dominion",
+                  xlabel = "And Death Shall Have No Dominion...",
+                  ylabel = "And Death Shall Have No Dominion...",
+                  pcolour = "black",
+                  geom = c("void"),
+                  flip_y = FALSE) +
+                    geom_point(size = 1)
+
+```
+
+## Run RQAs: The Wheels on the Bus
+
+```{r}
+#| echo: True
+wheels_for_plot <- crqa(ts1 = texts$wheels,
+                 ts2 = texts$wheels,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 0,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+```
+
+## Recurrence Plot: The Wheels on the Bus
+
+```{r}
+#| echo: True
+
+wheels_rp <- wheels_for_plot$RP
+
+plot_rp(wheels_rp,
+                  title = "Recurrence Plot of The Wheels on the Bus",
+                  xlabel = "The wheels on the bus...",
+                  ylabel = "The wheels on the bus...",
+                  pcolour = "black",
+                  geom = c("void"),
+                  flip_y = FALSE) +
+                    geom_point(size = 1)
+
+```
+
+## All Plots together
+Why isn't this showing up?
+
+::::{.columns}
+
+:::{.column}
+img1
+:::
+
+:::{.column}
+img2
+:::
+
+:::{.column}
+img3
+:::
+
+::::
+
+## Get Metrics
+Ok, so we've got some plots. But what we really want is numbers describing those plots.
+So we need to run the crqa function for death and wheels again with tw = 1
+
+```{r}
+death_for_metric <- crqa(ts1 = texts$death,
+                 ts2 = texts$death,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 1,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+```
+
+
+```{r}
+wheels_for_metric <- crqa(ts1 = texts$wheels,
+                 ts2 = texts$wheels,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 1,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+```
+
+
+## Get Metrics
+Now we can pull out the metrics from both:
+
+```{r}
+death_output <- data.frame()
+
+death_output <- rbind(death_output,
+                       cbind("RR" = death_for_metric$RR,
+                             "DET" = death_for_metric$DET,
+                             "NRLINE" = death_for_metric$NRLINE,
+                             "MaxL" = death_for_metric$maxL,
+                             "L" = death_for_metric$L,
+                             "ENTR" = death_for_metric$ENTR,
+                             "LAM" = death_for_metric$LAM,
+                             "TT" = death_for_metric$TT))
+```
+
+```{r}
+wheels_output <- data.frame()
+
+wheels_output <- rbind(wheels_output,
+                       cbind("RR" = wheels_for_metric$RR,
+                             "DET" = wheels_for_metric$DET,
+                             "NRLINE" = wheels_for_metric$NRLINE,
+                             "MaxL" = wheels_for_metric$maxL,
+                             "L" = wheels_for_metric$L,
+                             "ENTR" = wheels_for_metric$ENTR,
+                             "LAM" = wheels_for_metric$LAM,
+                             "TT" = wheels_for_metric$TT))
+```
+
+## bring metrics together
+
+```{r}
+rqa_metrics <- rbind("wheels" = wheels_output, "moby" = moby_output, "death" = death_output)
+
+gt(rqa_metrics, rownames_to_stub = TRUE)
+
+
+```
+
