@@ -143,7 +143,7 @@ To measure this, we are going to turn the data into a Recurrence Plot (RP), and 
 ::::
 
 # Tutorial
-work along sheet title
+rqa-tutorial-worksheet.qmd
 
 ## Step 1.Setup your workspace
 
