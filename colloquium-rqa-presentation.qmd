@@ -24,6 +24,20 @@ format:
 
 ## Pull tutorial from Github
 
+1) Go to github.com/d-a-heath
+
+2) Click on "colloquium-rqa-tutorial
+
+3) Click on the green "Code" button
+
+4) In the drop-down, click "Download ZIP" (it's at the bottom)
+
+5) After downloading, extract the ZIP file
+
+6) open the folder, then click on colloquium-rqa-tutorial.Rproj
+
+7) Now, in RStudio, in the files pane (bottom right), click on "rqa-tutorial-worksheet"
+
 # Conceptual Intro to Recurrence
 
 ## Recurrence: It's all coming back to me now
