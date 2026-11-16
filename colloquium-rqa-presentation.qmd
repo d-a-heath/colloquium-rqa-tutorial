@@ -40,45 +40,112 @@ format:
 
 # Conceptual Intro to Recurrence
 
+## One basic premise:
+
+Everything changes over time.
+
+## This means...
+
+That we can only learn part of the story with isolated snapshots.
+
+::::{.columns}
+
+:::{.column}
+We can learn a lot by studying bird wings.
+
+![](images/wing.png)
+:::
+
+:::{.column}
+
+:::{style="font-size:0.9em;"}
+But if we want to know how birds fly, we need to know how they move their wings. 
+:::
+
+![](images/bird.gif)
+
+:::
+
+::::
+
 ## Recurrence: It's all coming back to me now
 
-To recur is to pass through a similar state at a later point in time (e.g., I was hungry, then I ate. In a few hours, I will return to a state of being hungry). 
+- To recur is to pass through a similar state at a later point in time (e.g., the bird's wing moves up and down, up and down, etc.). 
 
-Recurrence is a ubiquitous feature in natural systems.
+- Recurrence is a ubiquitous feature in natural systems.
 
-## Who cares?
+## Cognitive systems are natural systems too?
 
-- Ok, so what?
-
-- Well, we all work with human data, and humans, being natural systems, also display recurrence at every level.
+-  We all work with human data, and humans, being natural systems, also display recurrence at every level.
 We're all very grateful for recurrence in the states of the muscles in our hearts, for example. 
 
 - Human behavior also tends to recur, and through the arcane rites of Recurrence Quantification, we can learn about how behavior is organized. 
 
 ## What kind of behavior?
 
-Any kind, as long as it is temporally organized!
+- Any kind, as long as it is temporally organized!
 
-t1, t2, t3, t4, etc... 
+- t1, t2, t3, t4, etc... 
 
-Patterns of recurrence are patterns in time, so we need data that has temporal structure. 
+- Patterns of recurrence are patterns in time, so we need data that has temporal structure. 
 
-This could be...
+- This could be...
 
-- SRL codes
-- Student generated texts
-- Flash card success/fails
+  - SRL codes
+  - Student generated texts
+  - Flash card success/fails
   
-## Big picture
+## Recurrence Quantification
+::: {style="font-size:0.7em;"}
+Patterns of recurrence in data can tell us about how that data is structured in time.
 
-data -> RP -> metrics
+To measure this, we are going to turn the data into a Recurrence Plot (RP), and then derive some quantitative metrics from the plot. 
+:::
 
-maybe look at wallot and leonardi flow chart
+:::: {.columns}
+
+::: {.column width="25%"}
+
+::: {style="font-size:0.5em;"}
+| Time  | Code  |
+|:-----:|:-----:|
+| t1    | 1     |
+| t2    | 1     |
+| t3    | 2     |
+| t4    | 3     |
+| t5    | 2     |
+
+: Data
+:::
+
+:::
+
+::: {.column width="50%"}
+![](images/example_rqa.png)
+:::
+
+::: {.column width="25%"}
+
+::: {style="font-size:0.5em;"}
+| Metric  | Value  |
+|:-------:|:------:|
+| RR      | 0.3    |
+| DET     | 25     |
+| L       | 7      |
+| ENTR    | 3.21   |
+| LAM     | 18     |
+
+: Output
+:::
+
+:::
+
+::::
 
 # Tutorial
 work along sheet title
 
-## Setup
+## Step 1.Setup your workspace
 
 ```{r, warning=FALSE}
 #| echo: true
@@ -92,8 +159,9 @@ library(gt)
 
 tidyverse is going to help us keep everything organized
 crqa is how we'll run the recurrence analysis
+gt is going to make some easy tables for us
 
-## Data
+## Step 2. Load your data
 
 ```{r}
 #| echo: true
@@ -102,16 +170,66 @@ texts <- read.csv("texts.csv")
 ```
 Again, in principle, this could be any kind of data, but these make for a convenient example
 
-## Parameters
-Parameters determine how the data is transformed into an RP and how the RP is quantified. 
+## Step 3. Get your parameters right
+::: {style="font-size:0.8em;"}
+- Several parameters determine how the data is transformed into an RP and how the RP is quantified. 
 
-For categorical data, we can use standard values.
+- For categorical data, we can use standard values (I'll demonstrate these later).
 
-Just show picture example here
+- For continuous data, you can think of the parameters like 3D glasses for your data. 
+:::
 
-Embedding and delay are sort of like 3d glasses
+:::: {.columns}
 
-## Metrics
+::: {.column width="40%"}
+
+::: {style="font-size:0.5em;"}
+1 dimensional ECG signal (from Webber & Zbilut 2005)
+:::
+
+![](images/1decg.png)
+:::
+
+::: {.column width="20%"}
+
+::: {style="font-size:0.5em;"}
+Dimensional Reconstruction via parameters
+:::
+
+![](images/3d.png)
+:::
+
+::: {.column width="40%"}
+
+::: {style="font-size:0.5em;"}
+3 dimensional reconstructed ECG signal (from Webber & Zbilut 2005)
+:::
+
+![](images/3decg.png)
+:::
+
+::::
+
+## Step 3. Parameters
+
+When we get to running the function, these are the values we will use:
+
+- delay = 1,
+- embed = 1,
+- rescale = 0,
+- radius = 0.001,
+- normalize = 0,
+- mindiagline = 2,
+- minvertline = 2,
+- tw = 0,
+- whiteline = FALSE,
+- recpt = FALSE,
+- side = "both",
+- method = "rqa",
+- metric = "euclidean",
+- datatype = "categorical"
+
+
 
 # Example 1: Moby Dick {background-image="images/beale_frontspiece.jpg" background-opacity="0.5"}
 *Boats Attacking Whales*, Thomas Beale 1839
@@ -139,7 +257,7 @@ to this
 
 ::::
 
-## RQA: Moby {background-image="images/beale_frontspiece.jpg" background-opacity="0.2"}
+## Step 4: Running an RQA {background-image="images/beale_frontspiece.jpg" background-opacity="0.2"}
 
 ::::{.columns}
 
@@ -175,7 +293,7 @@ moby_for_plot <- crqa(ts1 = texts$moby,
 
 ::::
 
-## Recurrence Plot: Moby Dick {background-image="images/beale_frontspiece.jpg" background-opacity="0.2"}
+## Step 5: Plotting {background-image="images/beale_frontspiece.jpg" background-opacity="0.2"}
 
 ::::{.columns}
 
@@ -231,7 +349,38 @@ to metrics describing the plot
 
 ::::
 
-## Recurrence Metrics: Moby Dick {background-image="images/beale_frontspiece.jpg" background-opacity="0.2"}
+## Metrics
+
+:::: {.columns}
+
+::: {style="font-size:0.7em;"}
+
+::: {.column width="33%"}
+Points
+
+- **Recurrence Rate (RR):** Proportion of recurrent points, overall recurrence.
+:::
+
+::: {.column width="33%"}
+Diagonal Lines 
+
+- **Determinism (DET):** Proportion of points on lines, predictability.
+- **Average Line Length (L):** How long tends to be spent in recurrent trajectories.
+- **Entropy (ENTR):** Probability of recurrent trajectories of different lengths, complexity/variation.
+:::
+
+::: {.column width="33%"}
+Vertical Lines
+
+- **Laminarity (LAM):** Proportion of points on lines, rigidity/consistency(?)
+- **Trapping Time (TT):** How long tends to be spent "stuck" in particular values
+:::
+
+:::
+
+::::
+
+## Step 6. Metrics {background-image="images/beale_frontspiece.jpg" background-opacity="0.2"}
 
 
 First, we need to run our analysis again with one parameter changed (*tw = 1*), and save them to a new object (*moby_for_metric*)
@@ -301,7 +450,7 @@ moby_output <- rbind(moby_output,
 gt(moby_output)
 ```
 
-## Let's try a couple more texts
+## Step 7: Follow along
 
 ## RQA: And death shall have no dominion {background-image="images/white_horse.jpg" background-opacity="0.2"}
 
@@ -313,13 +462,21 @@ Dylan Thomas
 
 :::{style="font-size: 0.5em;"}
 And death shall have no dominion.
+
 Dead men naked they shall be one
+
 With the man in the wind and the west moon;
+
 When their bones are picked clean and the clean bones gone,
+
 They shall have stars at elbow and foot;
+
 Though they go mad they shall be sane,
+
 Though they sink through the sea they shall rise again;
+
 Though lovers be lost love shall not;
+
 And death shall have no dominion.
 ...
 img: White Horse tavern, Wikipedia
@@ -400,6 +557,8 @@ Round and round
 The wheels on the bus go round and round
 
 All through the town
+...
+img: Wikipedia
 :::
 
 :::

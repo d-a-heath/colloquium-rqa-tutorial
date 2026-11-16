@@ -231,72 +231,213 @@ David Heath
 </section>
 <section id="pull-tutorial-from-github" class="slide level2">
 <h2>Pull tutorial from Github</h2>
+<ol type="1">
+<li><p>Go to github.com/d-a-heath</p></li>
+<li><p>Click on “colloquium-rqa-tutorial</p></li>
+<li><p>Click on the green “Code” button</p></li>
+<li><p>In the drop-down, click “Download ZIP” (it’s at the bottom)</p></li>
+<li><p>After downloading, extract the ZIP file</p></li>
+<li><p>open the folder, then click on colloquium-rqa-tutorial.Rproj</p></li>
+<li><p>Now, in RStudio, in the files pane (bottom right), click on “rqa-tutorial-worksheet”</p></li>
+</ol>
 </section></section>
 <section>
 <section id="conceptual-intro-to-recurrence" class="title-slide slide level1 center">
 <h1>Conceptual Intro to Recurrence</h1>
 
 </section>
+<section id="one-basic-premise" class="slide level2">
+<h2>One basic premise:</h2>
+<p>Everything changes over time.</p>
+</section>
+<section id="this-means" class="slide level2">
+<h2>This means…</h2>
+<p>That we can only learn part of the story with isolated snapshots.</p>
+<div class="columns">
+<div class="column">
+<p>We can learn a lot by studying bird wings.</p>
+<p><img data-src="images/wing.png"></p>
+</div><div class="column">
+<div style="font-size:0.9em;">
+<p>But if we want to know how birds fly, we need to know how they move their wings.</p>
+</div>
+<p><img data-src="images/bird.gif"></p>
+</div></div>
+</section>
 <section id="recurrence-its-all-coming-back-to-me-now" class="slide level2">
 <h2>Recurrence: It’s all coming back to me now</h2>
-<p>To recur is to pass through a similar state at a later point in time (e.g., I was hungry, then I ate. In a few hours, I will return to a state of being hungry).</p>
-<p>Recurrence is a ubiquitous feature in natural systems.</p>
-</section>
-<section id="who-cares" class="slide level2">
-<h2>Who cares?</h2>
 <ul>
-<li><p>Ok, so what?</p></li>
-<li><p>Well, we all work with human data, and humans, being natural systems, also display recurrence at every level. We’re all very grateful for recurrence in the states of the muscles in our hearts, for example.</p></li>
+<li><p>To recur is to pass through a similar state at a later point in time (e.g., the bird’s wing moves up and down, up and down, etc.).</p></li>
+<li><p>Recurrence is a ubiquitous feature in natural systems.</p></li>
+</ul>
+</section>
+<section id="cognitive-systems-are-natural-systems-too" class="slide level2">
+<h2>Cognitive systems are natural systems too?</h2>
+<ul>
+<li><p>We all work with human data, and humans, being natural systems, also display recurrence at every level. We’re all very grateful for recurrence in the states of the muscles in our hearts, for example.</p></li>
 <li><p>Human behavior also tends to recur, and through the arcane rites of Recurrence Quantification, we can learn about how behavior is organized.</p></li>
 </ul>
 </section>
 <section id="what-kind-of-behavior" class="slide level2">
 <h2>What kind of behavior?</h2>
-<p>Any kind, as long as it is temporally organized!</p>
-<p>t1, t2, t3, t4, etc…</p>
-<p>Patterns of recurrence are patterns in time, so we need data that has temporal structure.</p>
-<p>This could be…</p>
+<ul>
+<li><p>Any kind, as long as it is temporally organized!</p></li>
+<li><p>t1, t2, t3, t4, etc…</p></li>
+<li><p>Patterns of recurrence are patterns in time, so we need data that has temporal structure.</p></li>
+<li><p>This could be…</p>
 <ul>
 <li>SRL codes</li>
 <li>Student generated texts</li>
 <li>Flash card success/fails</li>
+</ul></li>
 </ul>
 </section>
-<section id="big-picture" class="slide level2">
-<h2>Big picture</h2>
-<p>data -&gt; RP -&gt; metrics</p>
-<p>maybe look at wallot and leonardi flow chart</p>
+<section id="recurrence-quantification" class="slide level2">
+<h2>Recurrence Quantification</h2>
+<div style="font-size:0.7em;">
+<p>Patterns of recurrence in data can tell us about how that data is structured in time.</p>
+<p>To measure this, we are going to turn the data into a Recurrence Plot (RP), and then derive some quantitative metrics from the plot.</p>
+</div>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div style="font-size:0.5em;">
+<table class="caption-top">
+<caption>Data</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Time</th>
+<th style="text-align: center;">Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">t1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">t2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">t3</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">t4</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">t5</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/example_rqa.png"></p>
+</div><div class="column" style="width:25%;">
+<div style="font-size:0.5em;">
+<table class="caption-top">
+<caption>Output</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Metric</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">RR</td>
+<td style="text-align: center;">0.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">DET</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ENTR</td>
+<td style="text-align: center;">3.21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">LAM</td>
+<td style="text-align: center;">18</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
 </section></section>
 <section>
 <section id="tutorial" class="title-slide slide level1 center">
 <h1>Tutorial</h1>
 <p>work along sheet title</p>
 </section>
-<section id="setup-1" class="slide level2">
-<h2>Setup</h2>
+<section id="step-1.setup-your-workspace" class="slide level2">
+<h2>Step 1.Setup your workspace</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
 <span id="cb1-2"><a href="" aria-label="2"></a><span class="fu">library</span>(crqa)</span>
 <span id="cb1-3"><a href="" aria-label="3"></a><span class="fu">library</span>(gt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>tidyverse is going to help us keep everything organized crqa is how we’ll run the recurrence analysis</p>
+<p>tidyverse is going to help us keep everything organized crqa is how we’ll run the recurrence analysis gt is going to make some easy tables for us</p>
 </section>
-<section id="data" class="slide level2">
-<h2>Data</h2>
+<section id="step-2.-load-your-data" class="slide level2">
+<h2>Step 2. Load your data</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-label="1"></a>texts <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"texts.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Again, in principle, this could be any kind of data, but these make for a convenient example</p>
 </section>
-<section id="parameters" class="slide level2">
-<h2>Parameters</h2>
-<p>Parameters determine how the data is transformed into an RP and how the RP is quantified.</p>
-<p>For categorical data, we can use standard values.</p>
-<p>Just show picture example here</p>
-<p>Embedding and delay are sort of like 3d glasses</p>
+<section id="step-3.-get-your-parameters-right" class="slide level2">
+<h2>Step 3. Get your parameters right</h2>
+<div style="font-size:0.8em;">
+<ul>
+<li><p>Several parameters determine how the data is transformed into an RP and how the RP is quantified.</p></li>
+<li><p>For categorical data, we can use standard values (I’ll demonstrate these later).</p></li>
+<li><p>For continuous data, you can think of the parameters like 3D glasses for your data.</p></li>
+</ul>
+</div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div style="font-size:0.5em;">
+<p>1 dimensional ECG signal</p>
+</div>
+<p><img data-src="images/1decg.png"></p>
+</div><div class="column" style="width:20%;">
+<div style="font-size:0.5em;">
+<p>Dimensional Reconstruction via parameters</p>
+</div>
+<p><img data-src="images/3d.png"></p>
+</div><div class="column" style="width:40%;">
+<div style="font-size:0.5em;">
+<p>3 dimensional reconstructed ECG signal</p>
+</div>
+<p><img data-src="images/3decg.png"></p>
+</div></div>
 </section>
-<section id="metrics" class="slide level2">
-<h2>Metrics</h2>
+<section id="step-3.-parameters" class="slide level2">
+<h2>Step 3. Parameters</h2>
+<p>When we get to running the function, these are the values we will use:</p>
+<ul>
+<li>delay = 1,</li>
+<li>embed = 1,</li>
+<li>rescale = 0,</li>
+<li>radius = 0.001,</li>
+<li>normalize = 0,</li>
+<li>mindiagline = 2,</li>
+<li>minvertline = 2,</li>
+<li>tw = 0,</li>
+<li>whiteline = FALSE,</li>
+<li>recpt = FALSE,</li>
+<li>side = “both”,</li>
+<li>method = “rqa”,</li>
+<li>metric = “euclidean”,</li>
+<li>datatype = “categorical”</li>
+</ul>
 </section></section>
 <section>
 <section id="example-1-moby-dick" class="title-slide slide level1 center" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.5">
@@ -316,8 +457,8 @@ David Heath
 <p><img data-src="images/moby_rqa.png"></p>
 </div></div>
 </section>
-<section id="rqa-moby" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
-<h2>RQA: Moby</h2>
+<section id="step-4-running-an-rqa" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
+<h2>Step 4: Running an RQA</h2>
 <div class="columns">
 <div class="column">
 <ul>
@@ -346,8 +487,8 @@ David Heath
 </div>
 </div></div>
 </section>
-<section id="recurrence-plot-moby-dick" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
-<h2>Recurrence Plot: Moby Dick</h2>
+<section id="step-5-plotting" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
+<h2>Step 5: Plotting</h2>
 <div class="columns">
 <div class="column">
 <p>The RP is an element inside the moby_for_plot object, and we call it inside the plotting function using the <strong>$</strong> operator</p>
@@ -386,8 +527,33 @@ David Heath
 </div>
 </div></div>
 </section>
-<section id="recurrence-metrics-moby-dick" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
-<h2>Recurrence Metrics: Moby Dick</h2>
+<section id="metrics" class="slide level2">
+<h2>Metrics</h2>
+<div class="columns">
+<div style="font-size:0.7em;">
+<div class="column" style="width:33%;">
+<p>Points</p>
+<ul>
+<li><strong>Recurrence Rate (RR):</strong> Proportion of recurrent points, overall recurrence.</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p>Diagonal Lines</p>
+<ul>
+<li><strong>Determinism (DET):</strong> Proportion of points on lines, predictability.</li>
+<li><strong>Average Line Length (L):</strong> How long tends to be spent in recurrent trajectories.</li>
+<li><strong>Entropy (ENTR):</strong> Probability of recurrent trajectories of different lengths, complexity/variation.</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p>Vertical Lines</p>
+<ul>
+<li><strong>Laminarity (LAM):</strong> Proportion of points on lines, rigidity/consistency(?)</li>
+<li><strong>Trapping Time (TT):</strong> How long tends to be spent “stuck” in particular values</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="step-6.-metrics" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
+<h2>Step 6. Metrics</h2>
 <p>First, we need to run our analysis again with one parameter changed (<em>tw = 1</em>), and save them to a new object (<em>moby_for_metric</em>)</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a>moby_for_metric <span class="ot">&lt;-</span> <span class="fu">crqa</span>(<span class="at">ts1 =</span> texts<span class="sc">$</span>moby,</span>
@@ -413,28 +579,28 @@ David Heath
 <p>if we plotted this updated version, it would look like this</p>
 
 <img data-src="colloquium-rqa-presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
-<section id="recurrence-metrics-moby-dick-1" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
+<section id="recurrence-metrics-moby-dick" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
 <h2>Recurrence Metrics: Moby Dick</h2>
 <p>Then we need to make a home for our metrics (<em>moby_output</em>) and then extract the metrics from our new object.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fknxuvjkxd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fknxuvjkxd table {
+<div id="gelvnpwwol" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gelvnpwwol table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fknxuvjkxd thead, #fknxuvjkxd tbody, #fknxuvjkxd tfoot, #fknxuvjkxd tr, #fknxuvjkxd td, #fknxuvjkxd th {
+#gelvnpwwol thead, #gelvnpwwol tbody, #gelvnpwwol tfoot, #gelvnpwwol tr, #gelvnpwwol td, #gelvnpwwol th {
   border-style: none;
 }
 
-#fknxuvjkxd p {
+#gelvnpwwol p {
   margin: 0;
   padding: 0;
 }
 
-#fknxuvjkxd .gt_table {
+#gelvnpwwol .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -460,12 +626,12 @@ David Heath
   border-left-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_caption {
+#gelvnpwwol .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fknxuvjkxd .gt_title {
+#gelvnpwwol .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -477,7 +643,7 @@ David Heath
   border-bottom-width: 0;
 }
 
-#fknxuvjkxd .gt_subtitle {
+#gelvnpwwol .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -489,7 +655,7 @@ David Heath
   border-top-width: 0;
 }
 
-#fknxuvjkxd .gt_heading {
+#gelvnpwwol .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -501,13 +667,13 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_bottom_border {
+#gelvnpwwol .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_col_headings {
+#gelvnpwwol .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -522,7 +688,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_col_heading {
+#gelvnpwwol .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -542,7 +708,7 @@ David Heath
   overflow-x: hidden;
 }
 
-#fknxuvjkxd .gt_column_spanner_outer {
+#gelvnpwwol .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -554,15 +720,15 @@ David Heath
   padding-right: 4px;
 }
 
-#fknxuvjkxd .gt_column_spanner_outer:first-child {
+#gelvnpwwol .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fknxuvjkxd .gt_column_spanner_outer:last-child {
+#gelvnpwwol .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fknxuvjkxd .gt_column_spanner {
+#gelvnpwwol .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -574,11 +740,11 @@ David Heath
   width: 100%;
 }
 
-#fknxuvjkxd .gt_spanner_row {
+#gelvnpwwol .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fknxuvjkxd .gt_group_heading {
+#gelvnpwwol .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -604,7 +770,7 @@ David Heath
   text-align: left;
 }
 
-#fknxuvjkxd .gt_empty_group_heading {
+#gelvnpwwol .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -619,15 +785,15 @@ David Heath
   vertical-align: middle;
 }
 
-#fknxuvjkxd .gt_from_md > :first-child {
+#gelvnpwwol .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fknxuvjkxd .gt_from_md > :last-child {
+#gelvnpwwol .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fknxuvjkxd .gt_row {
+#gelvnpwwol .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -646,7 +812,7 @@ David Heath
   overflow-x: hidden;
 }
 
-#fknxuvjkxd .gt_stub {
+#gelvnpwwol .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -659,7 +825,7 @@ David Heath
   padding-right: 5px;
 }
 
-#fknxuvjkxd .gt_stub_row_group {
+#gelvnpwwol .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -673,15 +839,15 @@ David Heath
   vertical-align: top;
 }
 
-#fknxuvjkxd .gt_row_group_first td {
+#gelvnpwwol .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fknxuvjkxd .gt_row_group_first th {
+#gelvnpwwol .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fknxuvjkxd .gt_summary_row {
+#gelvnpwwol .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -691,16 +857,16 @@ David Heath
   padding-right: 5px;
 }
 
-#fknxuvjkxd .gt_first_summary_row {
+#gelvnpwwol .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_first_summary_row.thick {
+#gelvnpwwol .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fknxuvjkxd .gt_last_summary_row {
+#gelvnpwwol .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -710,7 +876,7 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_grand_summary_row {
+#gelvnpwwol .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -720,7 +886,7 @@ David Heath
   padding-right: 5px;
 }
 
-#fknxuvjkxd .gt_first_grand_summary_row {
+#gelvnpwwol .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -730,7 +896,7 @@ David Heath
   border-top-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_last_grand_summary_row_top {
+#gelvnpwwol .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -740,11 +906,11 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_striped {
+#gelvnpwwol .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fknxuvjkxd .gt_table_body {
+#gelvnpwwol .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -753,7 +919,7 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_footnotes {
+#gelvnpwwol .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -767,7 +933,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_footnote {
+#gelvnpwwol .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -776,7 +942,7 @@ David Heath
   padding-right: 5px;
 }
 
-#fknxuvjkxd .gt_sourcenotes {
+#gelvnpwwol .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -790,7 +956,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#fknxuvjkxd .gt_sourcenote {
+#gelvnpwwol .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -798,72 +964,72 @@ David Heath
   padding-right: 5px;
 }
 
-#fknxuvjkxd .gt_left {
+#gelvnpwwol .gt_left {
   text-align: left;
 }
 
-#fknxuvjkxd .gt_center {
+#gelvnpwwol .gt_center {
   text-align: center;
 }
 
-#fknxuvjkxd .gt_right {
+#gelvnpwwol .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fknxuvjkxd .gt_font_normal {
+#gelvnpwwol .gt_font_normal {
   font-weight: normal;
 }
 
-#fknxuvjkxd .gt_font_bold {
+#gelvnpwwol .gt_font_bold {
   font-weight: bold;
 }
 
-#fknxuvjkxd .gt_font_italic {
+#gelvnpwwol .gt_font_italic {
   font-style: italic;
 }
 
-#fknxuvjkxd .gt_super {
+#gelvnpwwol .gt_super {
   font-size: 65%;
 }
 
-#fknxuvjkxd .gt_footnote_marks {
+#gelvnpwwol .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fknxuvjkxd .gt_asterisk {
+#gelvnpwwol .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fknxuvjkxd .gt_indent_1 {
+#gelvnpwwol .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fknxuvjkxd .gt_indent_2 {
+#gelvnpwwol .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fknxuvjkxd .gt_indent_3 {
+#gelvnpwwol .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fknxuvjkxd .gt_indent_4 {
+#gelvnpwwol .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fknxuvjkxd .gt_indent_5 {
+#gelvnpwwol .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fknxuvjkxd .katex-display {
+#gelvnpwwol .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fknxuvjkxd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gelvnpwwol div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -899,8 +1065,8 @@ David Heath
 </div>
 </div>
 </section>
-<section id="lets-try-a-couple-more-texts" class="slide level2">
-<h2>Let’s try a couple more texts</h2>
+<section id="step-7-follow-along" class="slide level2">
+<h2>Step 7: Follow along</h2>
 </section>
 <section id="rqa-and-death-shall-have-no-dominion" class="slide level2" data-background-image="images/white_horse.jpg" data-background-opacity="0.2">
 <h2>RQA: And death shall have no dominion</h2>
@@ -1063,23 +1229,23 @@ David Heath
 <span id="cb12-2"><a href="" aria-label="2"></a></span>
 <span id="cb12-3"><a href="" aria-label="3"></a><span class="fu">gt</span>(rqa_metrics, <span class="at">rownames_to_stub =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="pedznugdio" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pedznugdio table {
+<div id="bmmzyifohy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bmmzyifohy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pedznugdio thead, #pedznugdio tbody, #pedznugdio tfoot, #pedznugdio tr, #pedznugdio td, #pedznugdio th {
+#bmmzyifohy thead, #bmmzyifohy tbody, #bmmzyifohy tfoot, #bmmzyifohy tr, #bmmzyifohy td, #bmmzyifohy th {
   border-style: none;
 }
 
-#pedznugdio p {
+#bmmzyifohy p {
   margin: 0;
   padding: 0;
 }
 
-#pedznugdio .gt_table {
+#bmmzyifohy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1105,12 +1271,12 @@ David Heath
   border-left-color: #D3D3D3;
 }
 
-#pedznugdio .gt_caption {
+#bmmzyifohy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pedznugdio .gt_title {
+#bmmzyifohy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1122,7 +1288,7 @@ David Heath
   border-bottom-width: 0;
 }
 
-#pedznugdio .gt_subtitle {
+#bmmzyifohy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1134,7 +1300,7 @@ David Heath
   border-top-width: 0;
 }
 
-#pedznugdio .gt_heading {
+#bmmzyifohy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1146,13 +1312,13 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#pedznugdio .gt_bottom_border {
+#bmmzyifohy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pedznugdio .gt_col_headings {
+#bmmzyifohy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1167,7 +1333,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#pedznugdio .gt_col_heading {
+#bmmzyifohy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1187,7 +1353,7 @@ David Heath
   overflow-x: hidden;
 }
 
-#pedznugdio .gt_column_spanner_outer {
+#bmmzyifohy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1199,15 +1365,15 @@ David Heath
   padding-right: 4px;
 }
 
-#pedznugdio .gt_column_spanner_outer:first-child {
+#bmmzyifohy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pedznugdio .gt_column_spanner_outer:last-child {
+#bmmzyifohy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pedznugdio .gt_column_spanner {
+#bmmzyifohy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1219,11 +1385,11 @@ David Heath
   width: 100%;
 }
 
-#pedznugdio .gt_spanner_row {
+#bmmzyifohy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pedznugdio .gt_group_heading {
+#bmmzyifohy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1249,7 +1415,7 @@ David Heath
   text-align: left;
 }
 
-#pedznugdio .gt_empty_group_heading {
+#bmmzyifohy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1264,15 +1430,15 @@ David Heath
   vertical-align: middle;
 }
 
-#pedznugdio .gt_from_md > :first-child {
+#bmmzyifohy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pedznugdio .gt_from_md > :last-child {
+#bmmzyifohy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pedznugdio .gt_row {
+#bmmzyifohy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1291,7 +1457,7 @@ David Heath
   overflow-x: hidden;
 }
 
-#pedznugdio .gt_stub {
+#bmmzyifohy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1304,7 +1470,7 @@ David Heath
   padding-right: 5px;
 }
 
-#pedznugdio .gt_stub_row_group {
+#bmmzyifohy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1318,15 +1484,15 @@ David Heath
   vertical-align: top;
 }
 
-#pedznugdio .gt_row_group_first td {
+#bmmzyifohy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pedznugdio .gt_row_group_first th {
+#bmmzyifohy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pedznugdio .gt_summary_row {
+#bmmzyifohy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1336,16 +1502,16 @@ David Heath
   padding-right: 5px;
 }
 
-#pedznugdio .gt_first_summary_row {
+#bmmzyifohy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pedznugdio .gt_first_summary_row.thick {
+#bmmzyifohy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pedznugdio .gt_last_summary_row {
+#bmmzyifohy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1355,7 +1521,7 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#pedznugdio .gt_grand_summary_row {
+#bmmzyifohy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1365,7 +1531,7 @@ David Heath
   padding-right: 5px;
 }
 
-#pedznugdio .gt_first_grand_summary_row {
+#bmmzyifohy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1375,7 +1541,7 @@ David Heath
   border-top-color: #D3D3D3;
 }
 
-#pedznugdio .gt_last_grand_summary_row_top {
+#bmmzyifohy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1385,11 +1551,11 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#pedznugdio .gt_striped {
+#bmmzyifohy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pedznugdio .gt_table_body {
+#bmmzyifohy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1398,7 +1564,7 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#pedznugdio .gt_footnotes {
+#bmmzyifohy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1412,7 +1578,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#pedznugdio .gt_footnote {
+#bmmzyifohy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1421,7 +1587,7 @@ David Heath
   padding-right: 5px;
 }
 
-#pedznugdio .gt_sourcenotes {
+#bmmzyifohy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1435,7 +1601,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#pedznugdio .gt_sourcenote {
+#bmmzyifohy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1443,72 +1609,72 @@ David Heath
   padding-right: 5px;
 }
 
-#pedznugdio .gt_left {
+#bmmzyifohy .gt_left {
   text-align: left;
 }
 
-#pedznugdio .gt_center {
+#bmmzyifohy .gt_center {
   text-align: center;
 }
 
-#pedznugdio .gt_right {
+#bmmzyifohy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pedznugdio .gt_font_normal {
+#bmmzyifohy .gt_font_normal {
   font-weight: normal;
 }
 
-#pedznugdio .gt_font_bold {
+#bmmzyifohy .gt_font_bold {
   font-weight: bold;
 }
 
-#pedznugdio .gt_font_italic {
+#bmmzyifohy .gt_font_italic {
   font-style: italic;
 }
 
-#pedznugdio .gt_super {
+#bmmzyifohy .gt_super {
   font-size: 65%;
 }
 
-#pedznugdio .gt_footnote_marks {
+#bmmzyifohy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pedznugdio .gt_asterisk {
+#bmmzyifohy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pedznugdio .gt_indent_1 {
+#bmmzyifohy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pedznugdio .gt_indent_2 {
+#bmmzyifohy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pedznugdio .gt_indent_3 {
+#bmmzyifohy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pedznugdio .gt_indent_4 {
+#bmmzyifohy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pedznugdio .gt_indent_5 {
+#bmmzyifohy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pedznugdio .katex-display {
+#bmmzyifohy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pedznugdio div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bmmzyifohy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1580,23 +1746,23 @@ David Heath
 </div></div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="bcqsqocrxk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bcqsqocrxk table {
+<div id="klfnxlrpjh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#klfnxlrpjh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bcqsqocrxk thead, #bcqsqocrxk tbody, #bcqsqocrxk tfoot, #bcqsqocrxk tr, #bcqsqocrxk td, #bcqsqocrxk th {
+#klfnxlrpjh thead, #klfnxlrpjh tbody, #klfnxlrpjh tfoot, #klfnxlrpjh tr, #klfnxlrpjh td, #klfnxlrpjh th {
   border-style: none;
 }
 
-#bcqsqocrxk p {
+#klfnxlrpjh p {
   margin: 0;
   padding: 0;
 }
 
-#bcqsqocrxk .gt_table {
+#klfnxlrpjh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1622,12 +1788,12 @@ David Heath
   border-left-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_caption {
+#klfnxlrpjh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bcqsqocrxk .gt_title {
+#klfnxlrpjh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1639,7 +1805,7 @@ David Heath
   border-bottom-width: 0;
 }
 
-#bcqsqocrxk .gt_subtitle {
+#klfnxlrpjh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1651,7 +1817,7 @@ David Heath
   border-top-width: 0;
 }
 
-#bcqsqocrxk .gt_heading {
+#klfnxlrpjh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1663,13 +1829,13 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_bottom_border {
+#klfnxlrpjh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_col_headings {
+#klfnxlrpjh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1684,7 +1850,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_col_heading {
+#klfnxlrpjh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1704,7 +1870,7 @@ David Heath
   overflow-x: hidden;
 }
 
-#bcqsqocrxk .gt_column_spanner_outer {
+#klfnxlrpjh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1716,15 +1882,15 @@ David Heath
   padding-right: 4px;
 }
 
-#bcqsqocrxk .gt_column_spanner_outer:first-child {
+#klfnxlrpjh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bcqsqocrxk .gt_column_spanner_outer:last-child {
+#klfnxlrpjh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bcqsqocrxk .gt_column_spanner {
+#klfnxlrpjh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1736,11 +1902,11 @@ David Heath
   width: 100%;
 }
 
-#bcqsqocrxk .gt_spanner_row {
+#klfnxlrpjh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bcqsqocrxk .gt_group_heading {
+#klfnxlrpjh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1766,7 +1932,7 @@ David Heath
   text-align: left;
 }
 
-#bcqsqocrxk .gt_empty_group_heading {
+#klfnxlrpjh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1781,15 +1947,15 @@ David Heath
   vertical-align: middle;
 }
 
-#bcqsqocrxk .gt_from_md > :first-child {
+#klfnxlrpjh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bcqsqocrxk .gt_from_md > :last-child {
+#klfnxlrpjh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bcqsqocrxk .gt_row {
+#klfnxlrpjh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1808,7 +1974,7 @@ David Heath
   overflow-x: hidden;
 }
 
-#bcqsqocrxk .gt_stub {
+#klfnxlrpjh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1821,7 +1987,7 @@ David Heath
   padding-right: 5px;
 }
 
-#bcqsqocrxk .gt_stub_row_group {
+#klfnxlrpjh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1835,15 +2001,15 @@ David Heath
   vertical-align: top;
 }
 
-#bcqsqocrxk .gt_row_group_first td {
+#klfnxlrpjh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bcqsqocrxk .gt_row_group_first th {
+#klfnxlrpjh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bcqsqocrxk .gt_summary_row {
+#klfnxlrpjh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1853,16 +2019,16 @@ David Heath
   padding-right: 5px;
 }
 
-#bcqsqocrxk .gt_first_summary_row {
+#klfnxlrpjh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_first_summary_row.thick {
+#klfnxlrpjh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bcqsqocrxk .gt_last_summary_row {
+#klfnxlrpjh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1872,7 +2038,7 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_grand_summary_row {
+#klfnxlrpjh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1882,7 +2048,7 @@ David Heath
   padding-right: 5px;
 }
 
-#bcqsqocrxk .gt_first_grand_summary_row {
+#klfnxlrpjh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1892,7 +2058,7 @@ David Heath
   border-top-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_last_grand_summary_row_top {
+#klfnxlrpjh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1902,11 +2068,11 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_striped {
+#klfnxlrpjh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bcqsqocrxk .gt_table_body {
+#klfnxlrpjh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1915,7 +2081,7 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_footnotes {
+#klfnxlrpjh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1929,7 +2095,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_footnote {
+#klfnxlrpjh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1938,7 +2104,7 @@ David Heath
   padding-right: 5px;
 }
 
-#bcqsqocrxk .gt_sourcenotes {
+#klfnxlrpjh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1952,7 +2118,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#bcqsqocrxk .gt_sourcenote {
+#klfnxlrpjh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1960,72 +2126,72 @@ David Heath
   padding-right: 5px;
 }
 
-#bcqsqocrxk .gt_left {
+#klfnxlrpjh .gt_left {
   text-align: left;
 }
 
-#bcqsqocrxk .gt_center {
+#klfnxlrpjh .gt_center {
   text-align: center;
 }
 
-#bcqsqocrxk .gt_right {
+#klfnxlrpjh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bcqsqocrxk .gt_font_normal {
+#klfnxlrpjh .gt_font_normal {
   font-weight: normal;
 }
 
-#bcqsqocrxk .gt_font_bold {
+#klfnxlrpjh .gt_font_bold {
   font-weight: bold;
 }
 
-#bcqsqocrxk .gt_font_italic {
+#klfnxlrpjh .gt_font_italic {
   font-style: italic;
 }
 
-#bcqsqocrxk .gt_super {
+#klfnxlrpjh .gt_super {
   font-size: 65%;
 }
 
-#bcqsqocrxk .gt_footnote_marks {
+#klfnxlrpjh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bcqsqocrxk .gt_asterisk {
+#klfnxlrpjh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bcqsqocrxk .gt_indent_1 {
+#klfnxlrpjh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bcqsqocrxk .gt_indent_2 {
+#klfnxlrpjh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bcqsqocrxk .gt_indent_3 {
+#klfnxlrpjh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bcqsqocrxk .gt_indent_4 {
+#klfnxlrpjh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bcqsqocrxk .gt_indent_5 {
+#klfnxlrpjh .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bcqsqocrxk .katex-display {
+#klfnxlrpjh .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bcqsqocrxk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#klfnxlrpjh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

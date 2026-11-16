@@ -54,7 +54,7 @@ method = "rqa",
 metric = "euclidean",
 datatype = "categorical"
 
-I will mention the important ones in the lecture. For additional information, type ?crqa in the console.
+For additional information, type ?crqa in the console.
 
 # Step 4. Let's run an RQA
 
