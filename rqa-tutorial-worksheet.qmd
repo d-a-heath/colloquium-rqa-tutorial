@@ -93,6 +93,8 @@ We can use the native plotting function in crqa (plot_rp).
 
 Here, we need to use the $ operator again to call the RP (recurrence plot) that is saved in the object that was created in the previous step (moby_for_plot).
 
+We don't have to write the plot to an object because we want to see the output immediately. You can do that, and it is useful for some things, we just are not doing it now. 
+
 ```{r}
 plot_rp(moby_for_plot$RP,
                   title = "Recurrence Plot of the first ~150 words of Moby Dick",
@@ -161,4 +163,225 @@ moby_output <- rbind(moby_output,
 gt(moby_output)
 ```
 
-# Step 7. 
+# Step 7. Now it's your turn
+At this point in the talk, we've walked through an example.
+We're about to do a couple more. This time though, you get to do some typing instead of just hitting the little green arrow.
+
+Our next example is a poem by Dylan Thomas, labelled "death" in our texts dataset. 
+
+your job is to call the right dataset here. You need to enter in the correct values for ts1 and ts2 (where the ? are).
+
+```{r}
+death_for_plot <- crqa(ts1 = texts$?,
+                 ts2 = texts$?,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 0,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+```
+
+and of course, we'll want to see that plot.
+
+Now you need to call the correct part of the death_for_plot object
+
+```{r}
+
+plot_rp(death_for_plot$?,
+                  title = "Recurrence Plot of And Death Shall Have No Dominion",
+                  xlabel = "And Death Shall Have No Dominion...",
+                  ylabel = "And Death Shall Have No Dominion...",
+                  pcolour = "black",
+                  geom = c("void"),
+                  flip_y = FALSE) +
+                    geom_point(size = 1)
+
+```
+
+Good work! (I assume).
+
+Now we'll make it a little harder (as in, you have to copy-paste more).
+
+In the next code block, you need to fill in the whole crqa function for the text "wheels" (it's The Wheels on the Bus). Again, this is mostly a copy paste, but you have to make sure you're calling the right data.
+
+```{r}
+wheels_for_plot <- crqa()
+  
+  
+```
+
+
+Now do the same for the plot:
+
+For the title use: "Recurrence Plot of The Wheels on the Bus"
+For the xlabel and ylabel use: "The wheels on the bus go..."
+
+```{r}
+plot_rp()
+```
+
+You're doing great! (probably)
+
+Now we need to get metrics from both these RPs.
+
+First, we need to run the crqa function for both again with the tw value changed. It is NOT changed in the codeblock below. You must change the value of tw before running this block.
+
+
+```{r}
+
+death_for_metric <- crqa(ts1 = texts$death,
+                 ts2 = texts$death,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 0,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+
+wheels_for_metric <- crqa(ts1 = texts$wheels,
+                 ts2 = texts$wheels,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 0,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+
+```
+
+Ok, now we need to extract the metrics.
+
+Fill in the ? with the correct type of object. 
+
+```{r}
+death_output <- ?
+
+death_output <- rbind(death_output,
+                       cbind("RR" = death_for_metric$RR,
+                             "DET" = death_for_metric$DET,
+                             "NRLINE" = death_for_metric$NRLINE,
+                             "MaxL" = death_for_metric$maxL,
+                             "L" = death_for_metric$L,
+                             "ENTR" = death_for_metric$ENTR,
+                             "LAM" = death_for_metric$LAM,
+                             "TT" = death_for_metric$TT))
+
+wheels_output <- ?
+
+wheels_output <- rbind(wheels_output,
+                       cbind("RR" = wheels_for_metric$RR,
+                             "DET" = wheels_for_metric$DET,
+                             "NRLINE" = wheels_for_metric$NRLINE,
+                             "MaxL" = wheels_for_metric$maxL,
+                             "L" = wheels_for_metric$L,
+                             "ENTR" = wheels_for_metric$ENTR,
+                             "LAM" = wheels_for_metric$LAM,
+                             "TT" = wheels_for_metric$TT))
+```
+
+Help, I'm alive (that's a Metric reference)
+
+Ok, now we want to bring all the metrics together. You do not need to make any changes to the following block. If you did everything right so far, it should run ok.
+
+```{r}
+
+rqa_metrics <- rbind("wheels" = wheels_output, "moby" = moby_output, "death" = death_output)
+
+gt(rqa_metrics, rownames_to_stub = TRUE)
+
+```
+
+
+Congratulations - this is where we watch the boulder roll down the hill, and like Sisyphus, we trudge down and commence to rolling it up once more. 
+
+To aid you in your perpetual boulder rolling, here's a template:
+
+```{r}
+data <- read.csv(path/to/your/data)
+
+rqa_for_plot <- crqa(crqa(ts1 = data,
+                 ts2 = data,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 0,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical"))
+
+plot_rp(rqa_for_plot$RP,
+                  title = "Recurrence Plot of Your Date",
+                  xlabel = "Your Data...",
+                  ylabel = "Your Data...",
+                  pcolour = "black",
+                  geom = c("void"),
+                  flip_y = FALSE) +
+                    geom_point(size = 1)
+
+rqa_for_metric <- crqa(crqa(ts1 = data,
+                 ts2 = data,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 1,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical"))
+
+data_output <- data.frame()
+
+data_output <- rbind(data_output,
+                       cbind("RR" = rqa_for_metric$RR,
+                             "DET" = rqa_for_metric$DET,
+                             "NRLINE" = rqa_for_metric$NRLINE,
+                             "MaxL" = rqa_for_metric$maxL,
+                             "L" = rqa_for_metric$L,
+                             "ENTR" = rqa_for_metric$ENTR,
+                             "LAM" = rqa_for_metric$LAM,
+                             "TT" = rqa_for_metric$TT))
+
+```
+
+There's a whole lot more you can do with the crqa package. For more info, see the paper here: DOI: 10.32614/RJ-2021-062 
+
+Thanks for playing! 
+No refunds. 
