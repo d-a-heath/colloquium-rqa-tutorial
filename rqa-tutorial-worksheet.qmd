@@ -1,0 +1,164 @@
+---
+title: "RQA Tutorial Worksheet"
+format: html
+---
+
+In this tutorial, we are going to work through using the crqa package to run a Recurrence Quantification Analysis (RQA) on categorical data. Any kind of categorical data will work, but we're going to use texts as an example. 
+
+# Step 1. Setup your workspace
+Here, we're going to load in the appropriate packages
+
+tidyverse is a swiss-army knife for data wrangling. I don't actually think we need it, but it's good to have
+
+crqa is the package that will do our analysis.
+
+gt is for making tables quickly.
+
+```{r, warning=FALSE}
+#| echo: true
+#| warning: false
+
+library(tidyverse) 
+library(crqa)
+library(gt)
+
+```
+
+# Step 2. Load our data
+The example dataset is in a csv called "texts.csv".
+Your data doesn't have to be text, its just a convenient example.
+Your data does need to be organized in columns though. 
+
+```{r}
+texts <- read.csv("texts.csv")
+```
+
+# Step 3. Get your parameters right
+(this is an information only step)
+In our case, because we're using categorical data, we can use standard values for our parameters. 
+
+Inside the crqa function, we're going to set these values:
+
+delay = 1,
+embed = 1,
+rescale = 0,
+radius = 0.001,
+normalize = 0,
+mindiagline = 2,
+minvertline = 2,
+tw = 0,
+whiteline = FALSE,
+recpt = FALSE,
+side = "both",
+method = "rqa",
+metric = "euclidean",
+datatype = "categorical"
+
+I will mention the important ones in the lecture. For additional information, type ?crqa in the console.
+
+# Step 4. Let's run an RQA
+
+One of the "texts" is the first ~150 words of Moby Dick. This will be our first example. 
+
+Some important things:
+1) we're writing the function to an object using the <- operator
+2) we need to specify the data twice as ts1 and ts2 (short for timeseries 1 & 2)
+3) because the data is a part of a larger dataset, we need to call it using the $ operator
+
+```{r}
+moby_for_plot <- crqa(ts1 = texts$moby,
+                 ts2 = texts$moby,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 0,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+```
+
+# Step 5: Let's see the plot
+You might have noticed that the object is called "moby_for_plot".
+
+This is because we need to change one of the parameters before we get our output metrics. More on that later.
+
+We can use the native plotting function in crqa (plot_rp).
+
+Here, we need to use the $ operator again to call the RP (recurrence plot) that is saved in the object that was created in the previous step (moby_for_plot).
+
+```{r}
+plot_rp(moby_for_plot$RP,
+                  title = "Recurrence Plot of the first ~150 words of Moby Dick",
+                  xlabel = "Call me Ishmael...",
+                  ylabel = "Call me Ishmael...",
+                  pcolour = "black",
+                  geom = c("void"),
+                  flip_y = FALSE) +
+                    geom_point(size = 1)
+```
+
+# Step 6. Metrics
+
+Ok, the plot's nice. But we're scientists! We want numbers!
+
+We need to run the crqa function again, this time with tw=1. This will remove the diagonal (the line of identity) from our calculations. 
+
+Notice that we're saving this as a new object (moby_for_metric)
+
+```{r}
+moby_for_metric <- crqa(ts1 = texts$moby,
+                 ts2 = texts$moby,
+                 delay = 1,
+                 embed = 1,
+                 rescale = 0,
+                 radius = 0.001,
+                 normalize = 0,
+                 mindiagline = 2,
+                 minvertline = 2,
+                 tw = 1,
+                 whiteline = FALSE,
+                 recpt = FALSE,
+                 side = "both",
+                 method = "rqa",
+                 metric = "euclidean",
+                 datatype = "categorical")
+```
+
+
+And now we need to make a home for our metrics (moby_output) and pull them out of the moby_for_metric object.
+
+- Recurrence Rate (RR) is the proportion of recurrent points
+- Determinism (DET) is the propotion of points on diagonal lines
+- Number of lines (NRLINE) is... the number of (diagonal) lines
+- Maximum Line (MaxL) is the longest line
+- Average line length (L) is the average diagonal line length
+- Entropy (ENTR) is the observed probability of lines of all possible lengths... you know what, don't worry about this one and please do not ask me about it. It's all gonna be fine.
+- Laminarity (LAM) is DET for vertical lines
+- Trapping Time (TT) is L for vertical lines
+
+gt is gonna organize these into a neat little table for us.
+
+```{r}
+moby_output <- data.frame()
+
+moby_output <- rbind(moby_output,
+                       cbind("RR" = moby_for_metric$RR,
+                             "DET" = moby_for_metric$DET,
+                             "NRLINE" = moby_for_metric$NRLINE,
+                             "MaxL" = moby_for_metric$maxL,
+                             "L" = moby_for_metric$L,
+                             "ENTR" = moby_for_metric$ENTR,
+                             "LAM" = moby_for_metric$LAM,
+                             "TT" = moby_for_metric$TT))
+
+gt(moby_output)
+```
+
+# Step 7. 

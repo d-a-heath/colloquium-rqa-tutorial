@@ -6,8 +6,8 @@
 <script src="colloquium-rqa-tutorial_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="colloquium-rqa-tutorial_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="colloquium-rqa-tutorial_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="colloquium-rqa-tutorial_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+<link href="colloquium-rqa-tutorial_files/libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="David Heath">
   <meta name="dcterms.date" content="2026-11-16">
@@ -213,29 +213,61 @@ David Heath
 
   <p class="date">2026-11-16</p>
 </section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ol type="1">
+<li>Setup (R, RStudio, GitHub)</li>
+<li>Conceptual Intro to Recurrence</li>
+<li>Tutorial w/ example data</li>
+</ol>
+</section>
+<section>
+<section id="setup" class="title-slide slide level1 center">
+<h1>Setup</h1>
+
+</section>
+<section id="downloading-r-rstudio" class="slide level2">
+<h2>Downloading R &amp; RStudio</h2>
+</section>
+<section id="pull-tutorial-from-github" class="slide level2">
+<h2>Pull tutorial from Github</h2>
+</section></section>
+<section>
+<section id="conceptual-intro-to-recurrence" class="title-slide slide level1 center">
+<h1>Conceptual Intro to Recurrence</h1>
+
+</section>
 <section id="recurrence-its-all-coming-back-to-me-now" class="slide level2">
 <h2>Recurrence: It’s all coming back to me now</h2>
-<p>To recur is to pass through a similar state at a later point in time. Recurrence is a ubiquitous feature in natural systems.</p>
+<p>To recur is to pass through a similar state at a later point in time (e.g., I was hungry, then I ate. In a few hours, I will return to a state of being hungry).</p>
+<p>Recurrence is a ubiquitous feature in natural systems.</p>
 </section>
 <section id="who-cares" class="slide level2">
 <h2>Who cares?</h2>
-<p>Ok, so what?</p>
-<p>Well, we all work with human data, and humans, being natural systems, also display recurrence at every level. We’re all very grateful for recurrence in the states of the muscles in our hearts, for example.</p>
-<p>Human behavior also tends to recur, and through the arcane rites of Recurrence Quantification, we can learn about how behavior is organized.</p>
+<ul>
+<li><p>Ok, so what?</p></li>
+<li><p>Well, we all work with human data, and humans, being natural systems, also display recurrence at every level. We’re all very grateful for recurrence in the states of the muscles in our hearts, for example.</p></li>
+<li><p>Human behavior also tends to recur, and through the arcane rites of Recurrence Quantification, we can learn about how behavior is organized.</p></li>
+</ul>
 </section>
 <section id="what-kind-of-behavior" class="slide level2">
 <h2>What kind of behavior?</h2>
 <p>Any kind, as long as it is temporally organized!</p>
 <p>t1, t2, t3, t4, etc…</p>
 <p>Patterns of recurrence are patterns in time, so we need data that has temporal structure.</p>
-<p>This could be… SRL codes Student generated texts Flash card success/fails</p>
+<p>This could be…</p>
+<ul>
+<li>SRL codes</li>
+<li>Student generated texts</li>
+<li>Flash card success/fails</li>
+</ul>
 </section>
 <section id="big-picture" class="slide level2">
 <h2>Big picture</h2>
 <p>data -&gt; RP -&gt; metrics</p>
 <p>maybe look at wallot and leonardi flow chart</p>
 </section>
-<section id="setup" class="slide level2">
+<section id="setup-1" class="slide level2">
 <h2>Setup</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
@@ -260,13 +292,35 @@ David Heath
 </section>
 <section id="metrics" class="slide level2">
 <h2>Metrics</h2>
+</section></section>
+<section>
+<section id="example-1-moby-dick" class="title-slide slide level1 center" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.5">
+<h1>Example 1: Moby Dick</h1>
+<p><em>Boats Attacking Whales</em>, Thomas Beale 1839</p>
 </section>
-<section id="example-1-moby-dick" class="slide level2">
-<h2>Example 1: Moby Dick</h2>
-<p>Melville</p>
+<section id="from-data-to-plots" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
+<h2>From data to plots</h2>
+<div class="columns">
+<div class="column">
+<p>From this…</p>
+<div style="font-size: 0.5em; line-height:1;">
+<p>Call me Ishmael. Some years ago- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off- then, I account it high time to get to sea as soon as I can.</p>
+</div>
+</div><div class="column">
+<p>to this</p>
+<p><img data-src="images/moby_rqa.png"></p>
+</div></div>
 </section>
-<section id="rqa-moby" class="slide level2">
+<section id="rqa-moby" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
 <h2>RQA: Moby</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>We are going to use the <em>crqa</em> function, and save it to an object called <em>moby_for_plot</em>.</li>
+<li>The data is specified inside the function.</li>
+<li>The parameters are set inside the function.</li>
+</ul>
+</div><div class="column">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-label="1"></a>moby_for_plot <span class="ot">&lt;-</span> <span class="fu">crqa</span>(<span class="at">ts1 =</span> texts<span class="sc">$</span>moby,</span>
 <span id="cb3-2"><a href="" aria-label="2"></a>                 <span class="at">ts2 =</span> texts<span class="sc">$</span>moby,</span>
@@ -285,45 +339,97 @@ David Heath
 <span id="cb3-15"><a href="" aria-label="15"></a>                 <span class="at">metric =</span> <span class="st">"euclidean"</span>,</span>
 <span id="cb3-16"><a href="" aria-label="16"></a>                 <span class="at">datatype =</span> <span class="st">"categorical"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</div></div>
 </section>
-<section id="recurrence-plot-moby-dick" class="slide level2">
+<section id="recurrence-plot-moby-dick" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
 <h2>Recurrence Plot: Moby Dick</h2>
+<div class="columns">
+<div class="column">
+<p>The RP is an element inside the moby_for_plot object, and we call it inside the plotting function using the <strong>$</strong> operator</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-label="1"></a>moby_rp <span class="ot">&lt;-</span> moby_for_plot<span class="sc">$</span>RP</span>
-<span id="cb4-2"><a href="" aria-label="2"></a></span>
-<span id="cb4-3"><a href="" aria-label="3"></a><span class="fu">plot_rp</span>(moby_rp,</span>
-<span id="cb4-4"><a href="" aria-label="4"></a>                  <span class="at">title =</span> <span class="st">"Recurrence Plot of the first 100 words of Moby Dick"</span>,</span>
-<span id="cb4-5"><a href="" aria-label="5"></a>                  <span class="at">xlabel =</span> <span class="st">"Call me Ishmael..."</span>,</span>
-<span id="cb4-6"><a href="" aria-label="6"></a>                  <span class="at">ylabel =</span> <span class="st">"Call me Ishmael..."</span>,</span>
-<span id="cb4-7"><a href="" aria-label="7"></a>                  <span class="at">pcolour =</span> <span class="st">"black"</span>,</span>
-<span id="cb4-8"><a href="" aria-label="8"></a>                  <span class="at">geom =</span> <span class="fu">c</span>(<span class="st">"void"</span>),</span>
-<span id="cb4-9"><a href="" aria-label="9"></a>                  <span class="at">flip_y =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb4-10"><a href="" aria-label="10"></a>                    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-label="1"></a><span class="fu">plot_rp</span>(moby_for_plot<span class="sc">$</span>RP,</span>
+<span id="cb4-2"><a href="" aria-label="2"></a>                  <span class="at">title =</span> <span class="st">"Recurrence Plot of the first ~150 words of Moby Dick"</span>,</span>
+<span id="cb4-3"><a href="" aria-label="3"></a>                  <span class="at">xlabel =</span> <span class="st">"Call me Ishmael..."</span>,</span>
+<span id="cb4-4"><a href="" aria-label="4"></a>                  <span class="at">ylabel =</span> <span class="st">"Call me Ishmael..."</span>,</span>
+<span id="cb4-5"><a href="" aria-label="5"></a>                  <span class="at">pcolour =</span> <span class="st">"black"</span>,</span>
+<span id="cb4-6"><a href="" aria-label="6"></a>                  <span class="at">geom =</span> <span class="fu">c</span>(<span class="st">"void"</span>),</span>
+<span id="cb4-7"><a href="" aria-label="7"></a>                  <span class="at">flip_y =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="" aria-label="8"></a>                    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<img data-src="colloquium-rqa-tutorial_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
-<section id="recurrence-metrics-moby-dick" class="slide level2">
+</div><div class="column">
+<p><img data-src="images/moby_rqa.png"></p>
+</div></div>
+</section>
+<section id="from-plots-to-metrics" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
+<h2>From plots to metrics</h2>
+<div class="columns">
+<div class="column">
+<p>Ok, so now we want to go from our plot… <img data-src="images/moby_rqa.png"></p>
+</div><div class="column">
+<p>to metrics describing the plot</p>
+<div style="font-size: 0.5em;">
+<ul>
+<li>Recurrence Rate (RR)</li>
+<li>Determinism (DET)</li>
+<li>Number of Lines (NRLINE)</li>
+<li>Average Line Length (L)</li>
+<li>Longest Line (MaxL)</li>
+<li>Entropy (ENTR)</li>
+<li>Laminarity (LAM)</li>
+<li>Trapping Time (TT)</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="recurrence-metrics-moby-dick" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
 <h2>Recurrence Metrics: Moby Dick</h2>
-<p>First, we need to run our analysis again with one parameter changed:</p>
+<p>First, we need to run our analysis again with one parameter changed (<em>tw = 1</em>), and save them to a new object (<em>moby_for_metric</em>)</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a>moby_for_metric <span class="ot">&lt;-</span> <span class="fu">crqa</span>(<span class="at">ts1 =</span> texts<span class="sc">$</span>moby,</span>
+<span id="cb5-2"><a href="" aria-label="2"></a>                 <span class="at">ts2 =</span> texts<span class="sc">$</span>moby,</span>
+<span id="cb5-3"><a href="" aria-label="3"></a>                 <span class="at">delay =</span> <span class="dv">1</span>,</span>
+<span id="cb5-4"><a href="" aria-label="4"></a>                 <span class="at">embed =</span> <span class="dv">1</span>,</span>
+<span id="cb5-5"><a href="" aria-label="5"></a>                 <span class="at">rescale =</span> <span class="dv">0</span>,</span>
+<span id="cb5-6"><a href="" aria-label="6"></a>                 <span class="at">radius =</span> <span class="fl">0.001</span>,</span>
+<span id="cb5-7"><a href="" aria-label="7"></a>                 <span class="at">normalize =</span> <span class="dv">0</span>,</span>
+<span id="cb5-8"><a href="" aria-label="8"></a>                 <span class="at">mindiagline =</span> <span class="dv">2</span>,</span>
+<span id="cb5-9"><a href="" aria-label="9"></a>                 <span class="at">minvertline =</span> <span class="dv">2</span>,</span>
+<span id="cb5-10"><a href="" aria-label="10"></a>                 <span class="at">tw =</span> <span class="dv">1</span>,</span>
+<span id="cb5-11"><a href="" aria-label="11"></a>                 <span class="at">whiteline =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb5-12"><a href="" aria-label="12"></a>                 <span class="at">recpt =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb5-13"><a href="" aria-label="13"></a>                 <span class="at">side =</span> <span class="st">"both"</span>,</span>
+<span id="cb5-14"><a href="" aria-label="14"></a>                 <span class="at">method =</span> <span class="st">"rqa"</span>,</span>
+<span id="cb5-15"><a href="" aria-label="15"></a>                 <span class="at">metric =</span> <span class="st">"euclidean"</span>,</span>
+<span id="cb5-16"><a href="" aria-label="16"></a>                 <span class="at">datatype =</span> <span class="st">"categorical"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="hypothetically" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
+<h2>hypothetically</h2>
+<p>if we plotted this updated version, it would look like this</p>
+
+<img data-src="colloquium-rqa-tutorial_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="recurrence-metrics-moby-dick-1" class="slide level2" data-background-image="images/beale_frontspiece.jpg" data-background-opacity="0.2">
+<h2>Recurrence Metrics: Moby Dick</h2>
+<p>Then we need to make a home for our metrics (<em>moby_output</em>) and then extract the metrics from our new object.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="qwpgoldjqs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qwpgoldjqs table {
+<div id="xzbpfuvada" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xzbpfuvada table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qwpgoldjqs thead, #qwpgoldjqs tbody, #qwpgoldjqs tfoot, #qwpgoldjqs tr, #qwpgoldjqs td, #qwpgoldjqs th {
+#xzbpfuvada thead, #xzbpfuvada tbody, #xzbpfuvada tfoot, #xzbpfuvada tr, #xzbpfuvada td, #xzbpfuvada th {
   border-style: none;
 }
 
-#qwpgoldjqs p {
+#xzbpfuvada p {
   margin: 0;
   padding: 0;
 }
 
-#qwpgoldjqs .gt_table {
+#xzbpfuvada .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -349,12 +455,12 @@ David Heath
   border-left-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_caption {
+#xzbpfuvada .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qwpgoldjqs .gt_title {
+#xzbpfuvada .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -366,7 +472,7 @@ David Heath
   border-bottom-width: 0;
 }
 
-#qwpgoldjqs .gt_subtitle {
+#xzbpfuvada .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -378,7 +484,7 @@ David Heath
   border-top-width: 0;
 }
 
-#qwpgoldjqs .gt_heading {
+#xzbpfuvada .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -390,13 +496,13 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_bottom_border {
+#xzbpfuvada .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_col_headings {
+#xzbpfuvada .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -411,7 +517,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_col_heading {
+#xzbpfuvada .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -431,7 +537,7 @@ David Heath
   overflow-x: hidden;
 }
 
-#qwpgoldjqs .gt_column_spanner_outer {
+#xzbpfuvada .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -443,15 +549,15 @@ David Heath
   padding-right: 4px;
 }
 
-#qwpgoldjqs .gt_column_spanner_outer:first-child {
+#xzbpfuvada .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qwpgoldjqs .gt_column_spanner_outer:last-child {
+#xzbpfuvada .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qwpgoldjqs .gt_column_spanner {
+#xzbpfuvada .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -463,11 +569,11 @@ David Heath
   width: 100%;
 }
 
-#qwpgoldjqs .gt_spanner_row {
+#xzbpfuvada .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qwpgoldjqs .gt_group_heading {
+#xzbpfuvada .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -493,7 +599,7 @@ David Heath
   text-align: left;
 }
 
-#qwpgoldjqs .gt_empty_group_heading {
+#xzbpfuvada .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -508,15 +614,15 @@ David Heath
   vertical-align: middle;
 }
 
-#qwpgoldjqs .gt_from_md > :first-child {
+#xzbpfuvada .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qwpgoldjqs .gt_from_md > :last-child {
+#xzbpfuvada .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qwpgoldjqs .gt_row {
+#xzbpfuvada .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -535,7 +641,7 @@ David Heath
   overflow-x: hidden;
 }
 
-#qwpgoldjqs .gt_stub {
+#xzbpfuvada .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -548,7 +654,7 @@ David Heath
   padding-right: 5px;
 }
 
-#qwpgoldjqs .gt_stub_row_group {
+#xzbpfuvada .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -562,15 +668,15 @@ David Heath
   vertical-align: top;
 }
 
-#qwpgoldjqs .gt_row_group_first td {
+#xzbpfuvada .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qwpgoldjqs .gt_row_group_first th {
+#xzbpfuvada .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qwpgoldjqs .gt_summary_row {
+#xzbpfuvada .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -580,16 +686,16 @@ David Heath
   padding-right: 5px;
 }
 
-#qwpgoldjqs .gt_first_summary_row {
+#xzbpfuvada .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_first_summary_row.thick {
+#xzbpfuvada .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qwpgoldjqs .gt_last_summary_row {
+#xzbpfuvada .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -599,7 +705,7 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_grand_summary_row {
+#xzbpfuvada .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -609,7 +715,7 @@ David Heath
   padding-right: 5px;
 }
 
-#qwpgoldjqs .gt_first_grand_summary_row {
+#xzbpfuvada .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -619,7 +725,7 @@ David Heath
   border-top-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_last_grand_summary_row_top {
+#xzbpfuvada .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -629,11 +735,11 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_striped {
+#xzbpfuvada .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qwpgoldjqs .gt_table_body {
+#xzbpfuvada .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -642,7 +748,7 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_footnotes {
+#xzbpfuvada .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -656,7 +762,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_footnote {
+#xzbpfuvada .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -665,7 +771,7 @@ David Heath
   padding-right: 5px;
 }
 
-#qwpgoldjqs .gt_sourcenotes {
+#xzbpfuvada .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -679,7 +785,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#qwpgoldjqs .gt_sourcenote {
+#xzbpfuvada .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -687,72 +793,72 @@ David Heath
   padding-right: 5px;
 }
 
-#qwpgoldjqs .gt_left {
+#xzbpfuvada .gt_left {
   text-align: left;
 }
 
-#qwpgoldjqs .gt_center {
+#xzbpfuvada .gt_center {
   text-align: center;
 }
 
-#qwpgoldjqs .gt_right {
+#xzbpfuvada .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qwpgoldjqs .gt_font_normal {
+#xzbpfuvada .gt_font_normal {
   font-weight: normal;
 }
 
-#qwpgoldjqs .gt_font_bold {
+#xzbpfuvada .gt_font_bold {
   font-weight: bold;
 }
 
-#qwpgoldjqs .gt_font_italic {
+#xzbpfuvada .gt_font_italic {
   font-style: italic;
 }
 
-#qwpgoldjqs .gt_super {
+#xzbpfuvada .gt_super {
   font-size: 65%;
 }
 
-#qwpgoldjqs .gt_footnote_marks {
+#xzbpfuvada .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qwpgoldjqs .gt_asterisk {
+#xzbpfuvada .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qwpgoldjqs .gt_indent_1 {
+#xzbpfuvada .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qwpgoldjqs .gt_indent_2 {
+#xzbpfuvada .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qwpgoldjqs .gt_indent_3 {
+#xzbpfuvada .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qwpgoldjqs .gt_indent_4 {
+#xzbpfuvada .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qwpgoldjqs .gt_indent_5 {
+#xzbpfuvada .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qwpgoldjqs .katex-display {
+#xzbpfuvada .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qwpgoldjqs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xzbpfuvada div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -790,93 +896,121 @@ David Heath
 </section>
 <section id="lets-try-a-couple-more-texts" class="slide level2">
 <h2>Let’s try a couple more texts</h2>
-<p>Dylan Thomas</p>
-<p>Verna Hills</p>
 </section>
-<section id="rqa-and-death-shall-have-no-dominion" class="slide level2">
+<section id="rqa-and-death-shall-have-no-dominion" class="slide level2" data-background-image="images/white_horse.jpg" data-background-opacity="0.2">
 <h2>RQA: And death shall have no dominion</h2>
-<div class="cell" data-warnings="true">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a>death_for_plot <span class="ot">&lt;-</span> <span class="fu">crqa</span>(<span class="at">ts1 =</span> texts<span class="sc">$</span>death,</span>
-<span id="cb5-2"><a href="" aria-label="2"></a>                 <span class="at">ts2 =</span> texts<span class="sc">$</span>death,</span>
-<span id="cb5-3"><a href="" aria-label="3"></a>                 <span class="at">delay =</span> <span class="dv">1</span>,</span>
-<span id="cb5-4"><a href="" aria-label="4"></a>                 <span class="at">embed =</span> <span class="dv">1</span>,</span>
-<span id="cb5-5"><a href="" aria-label="5"></a>                 <span class="at">rescale =</span> <span class="dv">0</span>,</span>
-<span id="cb5-6"><a href="" aria-label="6"></a>                 <span class="at">radius =</span> <span class="fl">0.001</span>,</span>
-<span id="cb5-7"><a href="" aria-label="7"></a>                 <span class="at">normalize =</span> <span class="dv">0</span>,</span>
-<span id="cb5-8"><a href="" aria-label="8"></a>                 <span class="at">mindiagline =</span> <span class="dv">2</span>,</span>
-<span id="cb5-9"><a href="" aria-label="9"></a>                 <span class="at">minvertline =</span> <span class="dv">2</span>,</span>
-<span id="cb5-10"><a href="" aria-label="10"></a>                 <span class="at">tw =</span> <span class="dv">0</span>,</span>
-<span id="cb5-11"><a href="" aria-label="11"></a>                 <span class="at">whiteline =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb5-12"><a href="" aria-label="12"></a>                 <span class="at">recpt =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb5-13"><a href="" aria-label="13"></a>                 <span class="at">side =</span> <span class="st">"both"</span>,</span>
-<span id="cb5-14"><a href="" aria-label="14"></a>                 <span class="at">method =</span> <span class="st">"rqa"</span>,</span>
-<span id="cb5-15"><a href="" aria-label="15"></a>                 <span class="at">metric =</span> <span class="st">"euclidean"</span>,</span>
-<span id="cb5-16"><a href="" aria-label="16"></a>                 <span class="at">datatype =</span> <span class="st">"categorical"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="recurrence-plot-and-death-shall-have-no-dominion" class="slide level2">
-<h2>Recurrence Plot: And Death Shall Have No Dominion</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-label="1"></a>death_rp <span class="ot">&lt;-</span> death_for_plot<span class="sc">$</span>RP</span>
-<span id="cb6-2"><a href="" aria-label="2"></a></span>
-<span id="cb6-3"><a href="" aria-label="3"></a><span class="fu">plot_rp</span>(death_rp,</span>
-<span id="cb6-4"><a href="" aria-label="4"></a>                  <span class="at">title =</span> <span class="st">"Recurrence Plot of And Death Shall Have No Dominion"</span>,</span>
-<span id="cb6-5"><a href="" aria-label="5"></a>                  <span class="at">xlabel =</span> <span class="st">"And Death Shall Have No Dominion..."</span>,</span>
-<span id="cb6-6"><a href="" aria-label="6"></a>                  <span class="at">ylabel =</span> <span class="st">"And Death Shall Have No Dominion..."</span>,</span>
-<span id="cb6-7"><a href="" aria-label="7"></a>                  <span class="at">pcolour =</span> <span class="st">"black"</span>,</span>
-<span id="cb6-8"><a href="" aria-label="8"></a>                  <span class="at">geom =</span> <span class="fu">c</span>(<span class="st">"void"</span>),</span>
-<span id="cb6-9"><a href="" aria-label="9"></a>                  <span class="at">flip_y =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb6-10"><a href="" aria-label="10"></a>                    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-
-</div>
-<img data-src="colloquium-rqa-tutorial_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
-<section id="run-rqas-the-wheels-on-the-bus" class="slide level2">
-<h2>Run RQAs: The Wheels on the Bus</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a>wheels_for_plot <span class="ot">&lt;-</span> <span class="fu">crqa</span>(<span class="at">ts1 =</span> texts<span class="sc">$</span>wheels,</span>
-<span id="cb7-2"><a href="" aria-label="2"></a>                 <span class="at">ts2 =</span> texts<span class="sc">$</span>wheels,</span>
-<span id="cb7-3"><a href="" aria-label="3"></a>                 <span class="at">delay =</span> <span class="dv">1</span>,</span>
-<span id="cb7-4"><a href="" aria-label="4"></a>                 <span class="at">embed =</span> <span class="dv">1</span>,</span>
-<span id="cb7-5"><a href="" aria-label="5"></a>                 <span class="at">rescale =</span> <span class="dv">0</span>,</span>
-<span id="cb7-6"><a href="" aria-label="6"></a>                 <span class="at">radius =</span> <span class="fl">0.001</span>,</span>
-<span id="cb7-7"><a href="" aria-label="7"></a>                 <span class="at">normalize =</span> <span class="dv">0</span>,</span>
-<span id="cb7-8"><a href="" aria-label="8"></a>                 <span class="at">mindiagline =</span> <span class="dv">2</span>,</span>
-<span id="cb7-9"><a href="" aria-label="9"></a>                 <span class="at">minvertline =</span> <span class="dv">2</span>,</span>
-<span id="cb7-10"><a href="" aria-label="10"></a>                 <span class="at">tw =</span> <span class="dv">0</span>,</span>
-<span id="cb7-11"><a href="" aria-label="11"></a>                 <span class="at">whiteline =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb7-12"><a href="" aria-label="12"></a>                 <span class="at">recpt =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb7-13"><a href="" aria-label="13"></a>                 <span class="at">side =</span> <span class="st">"both"</span>,</span>
-<span id="cb7-14"><a href="" aria-label="14"></a>                 <span class="at">method =</span> <span class="st">"rqa"</span>,</span>
-<span id="cb7-15"><a href="" aria-label="15"></a>                 <span class="at">metric =</span> <span class="st">"euclidean"</span>,</span>
-<span id="cb7-16"><a href="" aria-label="16"></a>                 <span class="at">datatype =</span> <span class="st">"categorical"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="recurrence-plot-the-wheels-on-the-bus" class="slide level2">
-<h2>Recurrence Plot: The Wheels on the Bus</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-label="1"></a>wheels_rp <span class="ot">&lt;-</span> wheels_for_plot<span class="sc">$</span>RP</span>
-<span id="cb8-2"><a href="" aria-label="2"></a></span>
-<span id="cb8-3"><a href="" aria-label="3"></a><span class="fu">plot_rp</span>(wheels_rp,</span>
-<span id="cb8-4"><a href="" aria-label="4"></a>                  <span class="at">title =</span> <span class="st">"Recurrence Plot of The Wheels on the Bus"</span>,</span>
-<span id="cb8-5"><a href="" aria-label="5"></a>                  <span class="at">xlabel =</span> <span class="st">"The wheels on the bus..."</span>,</span>
-<span id="cb8-6"><a href="" aria-label="6"></a>                  <span class="at">ylabel =</span> <span class="st">"The wheels on the bus..."</span>,</span>
-<span id="cb8-7"><a href="" aria-label="7"></a>                  <span class="at">pcolour =</span> <span class="st">"black"</span>,</span>
-<span id="cb8-8"><a href="" aria-label="8"></a>                  <span class="at">geom =</span> <span class="fu">c</span>(<span class="st">"void"</span>),</span>
-<span id="cb8-9"><a href="" aria-label="9"></a>                  <span class="at">flip_y =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb8-10"><a href="" aria-label="10"></a>                    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-
-</div>
-<img data-src="colloquium-rqa-tutorial_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
-<section id="all-plots-together" class="slide level2">
-<h2>All Plots together</h2>
-<p>Why isn’t this showing up?</p>
 <div class="columns">
 <div class="column">
-<p>img1</p>
+<p>And Death Shall Have No Dominion Dylan Thomas</p>
+<div style="font-size: 0.5em;">
+<p>And death shall have no dominion. Dead men naked they shall be one With the man in the wind and the west moon; When their bones are picked clean and the clean bones gone, They shall have stars at elbow and foot; Though they go mad they shall be sane, Though they sink through the sea they shall rise again; Though lovers be lost love shall not; And death shall have no dominion. … img: White Horse tavern, Wikipedia</p>
+</div>
 </div><div class="column">
-<p>img2</p>
+<div class="cell" data-warnings="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-label="1"></a>death_for_plot <span class="ot">&lt;-</span> <span class="fu">crqa</span>(<span class="at">ts1 =</span> texts<span class="sc">$</span>death,</span>
+<span id="cb6-2"><a href="" aria-label="2"></a>                 <span class="at">ts2 =</span> texts<span class="sc">$</span>death,</span>
+<span id="cb6-3"><a href="" aria-label="3"></a>                 <span class="at">delay =</span> <span class="dv">1</span>,</span>
+<span id="cb6-4"><a href="" aria-label="4"></a>                 <span class="at">embed =</span> <span class="dv">1</span>,</span>
+<span id="cb6-5"><a href="" aria-label="5"></a>                 <span class="at">rescale =</span> <span class="dv">0</span>,</span>
+<span id="cb6-6"><a href="" aria-label="6"></a>                 <span class="at">radius =</span> <span class="fl">0.001</span>,</span>
+<span id="cb6-7"><a href="" aria-label="7"></a>                 <span class="at">normalize =</span> <span class="dv">0</span>,</span>
+<span id="cb6-8"><a href="" aria-label="8"></a>                 <span class="at">mindiagline =</span> <span class="dv">2</span>,</span>
+<span id="cb6-9"><a href="" aria-label="9"></a>                 <span class="at">minvertline =</span> <span class="dv">2</span>,</span>
+<span id="cb6-10"><a href="" aria-label="10"></a>                 <span class="at">tw =</span> <span class="dv">0</span>,</span>
+<span id="cb6-11"><a href="" aria-label="11"></a>                 <span class="at">whiteline =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-12"><a href="" aria-label="12"></a>                 <span class="at">recpt =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-13"><a href="" aria-label="13"></a>                 <span class="at">side =</span> <span class="st">"both"</span>,</span>
+<span id="cb6-14"><a href="" aria-label="14"></a>                 <span class="at">method =</span> <span class="st">"rqa"</span>,</span>
+<span id="cb6-15"><a href="" aria-label="15"></a>                 <span class="at">metric =</span> <span class="st">"euclidean"</span>,</span>
+<span id="cb6-16"><a href="" aria-label="16"></a>                 <span class="at">datatype =</span> <span class="st">"categorical"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="recurrence-plot-and-death-shall-have-no-dominion" class="slide level2" data-background-image="images/white_horse.jpg" data-background-opacity="0.2">
+<h2>Recurrence Plot: And Death Shall Have No Dominion</h2>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a>death_rp <span class="ot">&lt;-</span> death_for_plot<span class="sc">$</span>RP</span>
+<span id="cb7-2"><a href="" aria-label="2"></a></span>
+<span id="cb7-3"><a href="" aria-label="3"></a><span class="fu">plot_rp</span>(death_rp,</span>
+<span id="cb7-4"><a href="" aria-label="4"></a>                  <span class="at">title =</span> <span class="st">"Recurrence Plot of And Death Shall Have No Dominion"</span>,</span>
+<span id="cb7-5"><a href="" aria-label="5"></a>                  <span class="at">xlabel =</span> <span class="st">"And Death Shall Have No Dominion..."</span>,</span>
+<span id="cb7-6"><a href="" aria-label="6"></a>                  <span class="at">ylabel =</span> <span class="st">"And Death Shall Have No Dominion..."</span>,</span>
+<span id="cb7-7"><a href="" aria-label="7"></a>                  <span class="at">pcolour =</span> <span class="st">"black"</span>,</span>
+<span id="cb7-8"><a href="" aria-label="8"></a>                  <span class="at">geom =</span> <span class="fu">c</span>(<span class="st">"void"</span>),</span>
+<span id="cb7-9"><a href="" aria-label="9"></a>                  <span class="at">flip_y =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb7-10"><a href="" aria-label="10"></a>                    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div><div class="column">
-<p>img3</p>
+<p><img data-src="images/death_rqa.png"></p>
+</div></div>
+</section>
+<section id="run-rqas-the-wheels-on-the-bus" class="slide level2" data-background-image="images/bus.jpg" data-background-opacity="0.2">
+<h2>Run RQAs: The Wheels on the Bus</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="the-wheels-on-the-bus">The Wheels on the Bus</h3>
+<p><em>Verna Hills</em></p>
+<div style="font-size:0.7em;">
+<p>The wheels on the bus go round and round</p>
+<p>Round and round</p>
+<p>Round and round</p>
+<p>The wheels on the bus go round and round</p>
+<p>All through the town</p>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-label="1"></a>wheels_for_plot <span class="ot">&lt;-</span> <span class="fu">crqa</span>(</span>
+<span id="cb8-2"><a href="" aria-label="2"></a>    <span class="at">ts1 =</span> texts<span class="sc">$</span>wheels,</span>
+<span id="cb8-3"><a href="" aria-label="3"></a>    <span class="at">ts2 =</span> texts<span class="sc">$</span>wheels,</span>
+<span id="cb8-4"><a href="" aria-label="4"></a>    <span class="at">delay =</span> <span class="dv">1</span>,</span>
+<span id="cb8-5"><a href="" aria-label="5"></a>    <span class="at">embed =</span> <span class="dv">1</span>,</span>
+<span id="cb8-6"><a href="" aria-label="6"></a>    <span class="at">rescale =</span> <span class="dv">0</span>,</span>
+<span id="cb8-7"><a href="" aria-label="7"></a>    <span class="at">radius =</span> <span class="fl">0.001</span>,</span>
+<span id="cb8-8"><a href="" aria-label="8"></a>    <span class="at">normalize =</span> <span class="dv">0</span>,</span>
+<span id="cb8-9"><a href="" aria-label="9"></a>    <span class="at">mindiagline =</span> <span class="dv">2</span>,</span>
+<span id="cb8-10"><a href="" aria-label="10"></a>    <span class="at">minvertline =</span> <span class="dv">2</span>,</span>
+<span id="cb8-11"><a href="" aria-label="11"></a>    <span class="at">tw =</span> <span class="dv">0</span>,</span>
+<span id="cb8-12"><a href="" aria-label="12"></a>    <span class="at">whiteline =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-13"><a href="" aria-label="13"></a>    <span class="at">recpt =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-14"><a href="" aria-label="14"></a>    <span class="at">side =</span> <span class="st">"both"</span>,</span>
+<span id="cb8-15"><a href="" aria-label="15"></a>    <span class="at">method =</span> <span class="st">"rqa"</span>,</span>
+<span id="cb8-16"><a href="" aria-label="16"></a>    <span class="at">metric =</span> <span class="st">"euclidean"</span>,</span>
+<span id="cb8-17"><a href="" aria-label="17"></a>    <span class="at">datatype =</span> <span class="st">"categorical"</span></span>
+<span id="cb8-18"><a href="" aria-label="18"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="recurrence-plot-the-wheels-on-the-bus" class="slide level2" data-background-image="images/bus.jpg" data-background-opacity="0.2">
+<h2>Recurrence Plot: The Wheels on the Bus</h2>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a>wheels_rp <span class="ot">&lt;-</span> wheels_for_plot<span class="sc">$</span>RP</span>
+<span id="cb9-2"><a href="" aria-label="2"></a></span>
+<span id="cb9-3"><a href="" aria-label="3"></a><span class="fu">plot_rp</span>(wheels_rp,</span>
+<span id="cb9-4"><a href="" aria-label="4"></a>                  <span class="at">title =</span> <span class="st">"Recurrence Plot of The Wheels on the Bus"</span>,</span>
+<span id="cb9-5"><a href="" aria-label="5"></a>                  <span class="at">xlabel =</span> <span class="st">"The wheels on the bus..."</span>,</span>
+<span id="cb9-6"><a href="" aria-label="6"></a>                  <span class="at">ylabel =</span> <span class="st">"The wheels on the bus..."</span>,</span>
+<span id="cb9-7"><a href="" aria-label="7"></a>                  <span class="at">pcolour =</span> <span class="st">"black"</span>,</span>
+<span id="cb9-8"><a href="" aria-label="8"></a>                  <span class="at">geom =</span> <span class="fu">c</span>(<span class="st">"void"</span>),</span>
+<span id="cb9-9"><a href="" aria-label="9"></a>                  <span class="at">flip_y =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="" aria-label="10"></a>                    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<p><img data-src="images/wheels_rqa.png"></p>
+</div></div>
+</section>
+<section id="lets-look-at-all-our-plots" class="slide level2">
+<h2>Let’s look at all our plots</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="images/moby_rqa.png"></p>
+</div><div class="column" style="width:35%;">
+<p><img data-src="images/death_rqa.png"></p>
+</div><div class="column" style="width:32%;">
+<p><img data-src="images/wheels_rqa.png"></p>
 </div></div>
 </section>
 <section id="get-metrics" class="slide level2">
@@ -886,28 +1020,61 @@ David Heath
 <section id="get-metrics-1" class="slide level2">
 <h2>Get Metrics</h2>
 <p>Now we can pull out the metrics from both:</p>
-</section>
-<section id="bring-metrics-together" class="slide level2">
-<h2>bring metrics together</h2>
+<div class="columns">
+<div class="column">
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a>death_output <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb10-2"><a href="" aria-label="2"></a></span>
+<span id="cb10-3"><a href="" aria-label="3"></a>death_output <span class="ot">&lt;-</span> <span class="fu">rbind</span>(death_output,</span>
+<span id="cb10-4"><a href="" aria-label="4"></a>                       <span class="fu">cbind</span>(<span class="st">"RR"</span> <span class="ot">=</span> death_for_metric<span class="sc">$</span>RR,</span>
+<span id="cb10-5"><a href="" aria-label="5"></a>                             <span class="st">"DET"</span> <span class="ot">=</span> death_for_metric<span class="sc">$</span>DET,</span>
+<span id="cb10-6"><a href="" aria-label="6"></a>                             <span class="st">"NRLINE"</span> <span class="ot">=</span> death_for_metric<span class="sc">$</span>NRLINE,</span>
+<span id="cb10-7"><a href="" aria-label="7"></a>                             <span class="st">"MaxL"</span> <span class="ot">=</span> death_for_metric<span class="sc">$</span>maxL,</span>
+<span id="cb10-8"><a href="" aria-label="8"></a>                             <span class="st">"L"</span> <span class="ot">=</span> death_for_metric<span class="sc">$</span>L,</span>
+<span id="cb10-9"><a href="" aria-label="9"></a>                             <span class="st">"ENTR"</span> <span class="ot">=</span> death_for_metric<span class="sc">$</span>ENTR,</span>
+<span id="cb10-10"><a href="" aria-label="10"></a>                             <span class="st">"LAM"</span> <span class="ot">=</span> death_for_metric<span class="sc">$</span>LAM,</span>
+<span id="cb10-11"><a href="" aria-label="11"></a>                             <span class="st">"TT"</span> <span class="ot">=</span> death_for_metric<span class="sc">$</span>TT))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-label="1"></a>wheels_output <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb11-2"><a href="" aria-label="2"></a></span>
+<span id="cb11-3"><a href="" aria-label="3"></a>wheels_output <span class="ot">&lt;-</span> <span class="fu">rbind</span>(wheels_output,</span>
+<span id="cb11-4"><a href="" aria-label="4"></a>                       <span class="fu">cbind</span>(<span class="st">"RR"</span> <span class="ot">=</span> wheels_for_metric<span class="sc">$</span>RR,</span>
+<span id="cb11-5"><a href="" aria-label="5"></a>                             <span class="st">"DET"</span> <span class="ot">=</span> wheels_for_metric<span class="sc">$</span>DET,</span>
+<span id="cb11-6"><a href="" aria-label="6"></a>                             <span class="st">"NRLINE"</span> <span class="ot">=</span> wheels_for_metric<span class="sc">$</span>NRLINE,</span>
+<span id="cb11-7"><a href="" aria-label="7"></a>                             <span class="st">"MaxL"</span> <span class="ot">=</span> wheels_for_metric<span class="sc">$</span>maxL,</span>
+<span id="cb11-8"><a href="" aria-label="8"></a>                             <span class="st">"L"</span> <span class="ot">=</span> wheels_for_metric<span class="sc">$</span>L,</span>
+<span id="cb11-9"><a href="" aria-label="9"></a>                             <span class="st">"ENTR"</span> <span class="ot">=</span> wheels_for_metric<span class="sc">$</span>ENTR,</span>
+<span id="cb11-10"><a href="" aria-label="10"></a>                             <span class="st">"LAM"</span> <span class="ot">=</span> wheels_for_metric<span class="sc">$</span>LAM,</span>
+<span id="cb11-11"><a href="" aria-label="11"></a>                             <span class="st">"TT"</span> <span class="ot">=</span> wheels_for_metric<span class="sc">$</span>TT))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="bring-metrics-for-all-texts-together" class="slide level2">
+<h2>bring metrics for all texts together</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-label="1"></a>rqa_metrics <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="st">"wheels"</span> <span class="ot">=</span> wheels_output, <span class="st">"moby"</span> <span class="ot">=</span> moby_output, <span class="st">"death"</span> <span class="ot">=</span> death_output)</span>
+<span id="cb12-2"><a href="" aria-label="2"></a></span>
+<span id="cb12-3"><a href="" aria-label="3"></a><span class="fu">gt</span>(rqa_metrics, <span class="at">rownames_to_stub =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="faygfipxmt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#faygfipxmt table {
+<div id="qdxhglnuck" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qdxhglnuck table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#faygfipxmt thead, #faygfipxmt tbody, #faygfipxmt tfoot, #faygfipxmt tr, #faygfipxmt td, #faygfipxmt th {
+#qdxhglnuck thead, #qdxhglnuck tbody, #qdxhglnuck tfoot, #qdxhglnuck tr, #qdxhglnuck td, #qdxhglnuck th {
   border-style: none;
 }
 
-#faygfipxmt p {
+#qdxhglnuck p {
   margin: 0;
   padding: 0;
 }
 
-#faygfipxmt .gt_table {
+#qdxhglnuck .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -933,12 +1100,12 @@ David Heath
   border-left-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_caption {
+#qdxhglnuck .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#faygfipxmt .gt_title {
+#qdxhglnuck .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -950,7 +1117,7 @@ David Heath
   border-bottom-width: 0;
 }
 
-#faygfipxmt .gt_subtitle {
+#qdxhglnuck .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -962,7 +1129,7 @@ David Heath
   border-top-width: 0;
 }
 
-#faygfipxmt .gt_heading {
+#qdxhglnuck .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -974,13 +1141,13 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_bottom_border {
+#qdxhglnuck .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_col_headings {
+#qdxhglnuck .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -995,7 +1162,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_col_heading {
+#qdxhglnuck .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1015,7 +1182,7 @@ David Heath
   overflow-x: hidden;
 }
 
-#faygfipxmt .gt_column_spanner_outer {
+#qdxhglnuck .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1027,15 +1194,15 @@ David Heath
   padding-right: 4px;
 }
 
-#faygfipxmt .gt_column_spanner_outer:first-child {
+#qdxhglnuck .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#faygfipxmt .gt_column_spanner_outer:last-child {
+#qdxhglnuck .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#faygfipxmt .gt_column_spanner {
+#qdxhglnuck .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1047,11 +1214,11 @@ David Heath
   width: 100%;
 }
 
-#faygfipxmt .gt_spanner_row {
+#qdxhglnuck .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#faygfipxmt .gt_group_heading {
+#qdxhglnuck .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1077,7 +1244,7 @@ David Heath
   text-align: left;
 }
 
-#faygfipxmt .gt_empty_group_heading {
+#qdxhglnuck .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1092,15 +1259,15 @@ David Heath
   vertical-align: middle;
 }
 
-#faygfipxmt .gt_from_md > :first-child {
+#qdxhglnuck .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#faygfipxmt .gt_from_md > :last-child {
+#qdxhglnuck .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#faygfipxmt .gt_row {
+#qdxhglnuck .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1119,7 +1286,7 @@ David Heath
   overflow-x: hidden;
 }
 
-#faygfipxmt .gt_stub {
+#qdxhglnuck .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1132,7 +1299,7 @@ David Heath
   padding-right: 5px;
 }
 
-#faygfipxmt .gt_stub_row_group {
+#qdxhglnuck .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1146,15 +1313,15 @@ David Heath
   vertical-align: top;
 }
 
-#faygfipxmt .gt_row_group_first td {
+#qdxhglnuck .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#faygfipxmt .gt_row_group_first th {
+#qdxhglnuck .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#faygfipxmt .gt_summary_row {
+#qdxhglnuck .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1164,16 +1331,16 @@ David Heath
   padding-right: 5px;
 }
 
-#faygfipxmt .gt_first_summary_row {
+#qdxhglnuck .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_first_summary_row.thick {
+#qdxhglnuck .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#faygfipxmt .gt_last_summary_row {
+#qdxhglnuck .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1183,7 +1350,7 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_grand_summary_row {
+#qdxhglnuck .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1193,7 +1360,7 @@ David Heath
   padding-right: 5px;
 }
 
-#faygfipxmt .gt_first_grand_summary_row {
+#qdxhglnuck .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1203,7 +1370,7 @@ David Heath
   border-top-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_last_grand_summary_row_top {
+#qdxhglnuck .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1213,11 +1380,11 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_striped {
+#qdxhglnuck .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#faygfipxmt .gt_table_body {
+#qdxhglnuck .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1226,7 +1393,7 @@ David Heath
   border-bottom-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_footnotes {
+#qdxhglnuck .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1240,7 +1407,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_footnote {
+#qdxhglnuck .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1249,7 +1416,7 @@ David Heath
   padding-right: 5px;
 }
 
-#faygfipxmt .gt_sourcenotes {
+#qdxhglnuck .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1263,7 +1430,7 @@ David Heath
   border-right-color: #D3D3D3;
 }
 
-#faygfipxmt .gt_sourcenote {
+#qdxhglnuck .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1271,72 +1438,72 @@ David Heath
   padding-right: 5px;
 }
 
-#faygfipxmt .gt_left {
+#qdxhglnuck .gt_left {
   text-align: left;
 }
 
-#faygfipxmt .gt_center {
+#qdxhglnuck .gt_center {
   text-align: center;
 }
 
-#faygfipxmt .gt_right {
+#qdxhglnuck .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#faygfipxmt .gt_font_normal {
+#qdxhglnuck .gt_font_normal {
   font-weight: normal;
 }
 
-#faygfipxmt .gt_font_bold {
+#qdxhglnuck .gt_font_bold {
   font-weight: bold;
 }
 
-#faygfipxmt .gt_font_italic {
+#qdxhglnuck .gt_font_italic {
   font-style: italic;
 }
 
-#faygfipxmt .gt_super {
+#qdxhglnuck .gt_super {
   font-size: 65%;
 }
 
-#faygfipxmt .gt_footnote_marks {
+#qdxhglnuck .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#faygfipxmt .gt_asterisk {
+#qdxhglnuck .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#faygfipxmt .gt_indent_1 {
+#qdxhglnuck .gt_indent_1 {
   text-indent: 5px;
 }
 
-#faygfipxmt .gt_indent_2 {
+#qdxhglnuck .gt_indent_2 {
   text-indent: 10px;
 }
 
-#faygfipxmt .gt_indent_3 {
+#qdxhglnuck .gt_indent_3 {
   text-indent: 15px;
 }
 
-#faygfipxmt .gt_indent_4 {
+#qdxhglnuck .gt_indent_4 {
   text-indent: 20px;
 }
 
-#faygfipxmt .gt_indent_5 {
+#qdxhglnuck .gt_indent_5 {
   text-indent: 25px;
 }
 
-#faygfipxmt .katex-display {
+#qdxhglnuck .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#faygfipxmt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qdxhglnuck div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1395,12 +1562,533 @@ David Heath
 </div>
 </div>
 </div>
+</section>
+<section id="plots-and-metrics-together" class="slide level2">
+<h2>plots and metrics together</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="images/moby_rqa.png"></p>
+</div><div class="column" style="width:35%;">
+<p><img data-src="images/death_rqa.png"></p>
+</div><div class="column" style="width:32%;">
+<p><img data-src="images/wheels_rqa.png"></p>
+</div></div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="bjxyrviavg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bjxyrviavg table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bjxyrviavg thead, #bjxyrviavg tbody, #bjxyrviavg tfoot, #bjxyrviavg tr, #bjxyrviavg td, #bjxyrviavg th {
+  border-style: none;
+}
+
+#bjxyrviavg p {
+  margin: 0;
+  padding: 0;
+}
+
+#bjxyrviavg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bjxyrviavg .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bjxyrviavg .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bjxyrviavg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bjxyrviavg .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bjxyrviavg .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bjxyrviavg .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bjxyrviavg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bjxyrviavg .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bjxyrviavg .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bjxyrviavg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bjxyrviavg .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bjxyrviavg .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bjxyrviavg .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bjxyrviavg .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bjxyrviavg .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bjxyrviavg .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bjxyrviavg .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bjxyrviavg .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bjxyrviavg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bjxyrviavg .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bjxyrviavg .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bjxyrviavg .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bjxyrviavg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bjxyrviavg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bjxyrviavg .gt_left {
+  text-align: left;
+}
+
+#bjxyrviavg .gt_center {
+  text-align: center;
+}
+
+#bjxyrviavg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bjxyrviavg .gt_font_normal {
+  font-weight: normal;
+}
+
+#bjxyrviavg .gt_font_bold {
+  font-weight: bold;
+}
+
+#bjxyrviavg .gt_font_italic {
+  font-style: italic;
+}
+
+#bjxyrviavg .gt_super {
+  font-size: 65%;
+}
+
+#bjxyrviavg .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bjxyrviavg .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bjxyrviavg .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bjxyrviavg .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bjxyrviavg .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bjxyrviavg .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bjxyrviavg .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#bjxyrviavg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#bjxyrviavg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="RR" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">RR</th>
+<th id="DET" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">DET</th>
+<th id="NRLINE" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">NRLINE</th>
+<th id="MaxL" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">MaxL</th>
+<th id="L" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">L</th>
+<th id="ENTR" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ENTR</th>
+<th id="LAM" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">LAM</th>
+<th id="TT" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">TT</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<th id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">wheels</th>
+<td class="gt_row gt_right" headers="stub_1_1 RR">7.388889</td>
+<td class="gt_row gt_right" headers="stub_1_1 DET">52.631579</td>
+<td class="gt_row gt_right" headers="stub_1_1 NRLINE">140</td>
+<td class="gt_row gt_right" headers="stub_1_1 MaxL">9</td>
+<td class="gt_row gt_right" headers="stub_1_1 L">4.000000</td>
+<td class="gt_row gt_right" headers="stub_1_1 ENTR">1.5231536</td>
+<td class="gt_row gt_right" headers="stub_1_1 LAM">14.28571</td>
+<td class="gt_row gt_right" headers="stub_1_1 TT">3.8</td>
+</tr>
+<tr class="even">
+<th id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">moby</th>
+<td class="gt_row gt_right" headers="stub_1_2 RR">1.163445</td>
+<td class="gt_row gt_right" headers="stub_1_2 DET">7.258065</td>
+<td class="gt_row gt_right" headers="stub_1_2 NRLINE">6</td>
+<td class="gt_row gt_right" headers="stub_1_2 MaxL">4</td>
+<td class="gt_row gt_right" headers="stub_1_2 L">3.000000</td>
+<td class="gt_row gt_right" headers="stub_1_2 ENTR">1.0986123</td>
+<td class="gt_row gt_right" headers="stub_1_2 LAM">0.00000</td>
+<td class="gt_row gt_right" headers="stub_1_2 TT">NaN</td>
+</tr>
+<tr class="odd">
+<th id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">death</th>
+<td class="gt_row gt_right" headers="stub_1_3 RR">2.317554</td>
+<td class="gt_row gt_right" headers="stub_1_3 DET">42.553191</td>
+<td class="gt_row gt_right" headers="stub_1_3 NRLINE">58</td>
+<td class="gt_row gt_right" headers="stub_1_3 MaxL">12</td>
+<td class="gt_row gt_right" headers="stub_1_3 L">4.137931</td>
+<td class="gt_row gt_right" headers="stub_1_3 ENTR">0.8167753</td>
+<td class="gt_row gt_right" headers="stub_1_3 LAM">0.00000</td>
+<td class="gt_row gt_right" headers="stub_1_3 TT">NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section></section>
+<section id="thanks" class="title-slide slide level1 center">
+<h1>Thanks!</h1>
+<p>Go forth and perform RQAs in my name.</p>
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-
+<p>Cognitive Science Colloquium</p>
 </div>
 </div></div>
 
@@ -1558,7 +2246,7 @@ David Heath
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'fade',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
